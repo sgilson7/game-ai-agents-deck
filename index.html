@@ -77,6 +77,37 @@ ul.why li { margin: 5px 0; }
 .wrap { overflow-x: auto; margin: 0 0 16px; }
 table.map { border-collapse: collapse; width: 100%; font-size: .93em; }
 #s-shipped table.map { font-size: .84em; line-height: 1.35; } #s-shipped table.map td { padding: 6px 10px; }
+/* Static diagrams (tools/deck_figures.py, T5): colours from the theme tokens only. */
+.dg { margin: 18px 0 4px; max-width: 1000px; }
+.dg svg { display: block; width: 100%; height: auto; overflow: visible; }
+.dg text { font-family: var(--body); fill: var(--fg); }
+.dg .dg-s { fill: var(--muted); } .dg .dg-h { font-weight: 700; }
+.dg .dg-bad-t { fill: var(--bad); font-weight: 600; }
+.dg .dg-box, .dg .dg-blank, .dg .dg-acc, .dg .dg-ok, .dg .dg-badbox, .dg .dg-mark { fill: var(--panel); stroke: var(--line); stroke-width: 1.5; }
+.dg .dg-acc { fill: var(--bg2); stroke: var(--accent); stroke-width: 2.2; }
+.dg .dg-blank { stroke: var(--req); stroke-width: 2; stroke-dasharray: 7 5; }
+.dg .dg-ok { stroke: var(--ok); stroke-width: 2.2; }
+.dg .dg-badbox { stroke: var(--bad); stroke-width: 2.2; stroke-dasharray: 7 5; }
+.dg .dg-mark { stroke: var(--mark); stroke-width: 2.2; }
+.dg .dg-frame { fill: var(--bg2); stroke: var(--line); stroke-width: 1.5; }
+.dg .dg-ln { fill: none; stroke: var(--muted); stroke-width: 2; }
+.dg .dg-acc-ln { stroke: var(--accent); } .dg .dg-bad-ln { stroke: var(--bad); } .dg .dg-mark-ln { stroke: var(--mark); }
+.dg .dg-ah-mut { fill: var(--muted); } .dg .dg-ah-acc { fill: var(--accent); } .dg .dg-ah-bad { fill: var(--bad); }
+.dg .dg-dot { fill: var(--accent); }
+.dg .dg-att { fill: var(--accent); stroke: var(--accent); stroke-width: 2; }
+.dg .dg-heard { fill: var(--panel); stroke: var(--accent); stroke-width: 5; }
+.dg .dg-none { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 3 3; }
+.dg .dg-band { fill: var(--lit); stroke: var(--lit-line); stroke-width: 1; }
+.dg .dg-gate { fill: var(--fg); }
+.dg .dg-fig { fill: none; stroke: var(--fg); stroke-width: 2.5; } .dg .dg-figl { fill: none; stroke: var(--fg); stroke-width: 2.5; stroke-linecap: round; }
+.dg .dg-bugb { fill: var(--bad); } .dg .dg-bugl { stroke: var(--bad); stroke-width: 2; stroke-linecap: round; }
+.dg .dg-road { fill: var(--line); }
+.dg .dg-house { fill: var(--panel); stroke: var(--fg); stroke-width: 1.5; }
+.dg .dg-patrol { stroke: var(--req); stroke-width: 2; stroke-dasharray: 8 6; }
+.dg .dg-cone { fill: var(--lit); stroke: var(--lit-line); stroke-width: 1.5; }
+.dg .dg-noise { fill: var(--mark); }
+.dg .dg-new { fill: var(--bg2); stroke: var(--accent); stroke-width: 1.5; }
+@media (max-width: 700px) { .dg { overflow-x: auto; } .dg svg { min-width: 620px; } }
 table.map th, table.map td { text-align: left; vertical-align: top; padding: 7px 10px; border-bottom: 1px solid var(--line); }
 table.map th { font: 600 .74em var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
 @media (max-width: 700px) { table.map thead { display: none; } table.map tr { display: block; padding: 8px 0; border-bottom: 1px solid var(--line); }
@@ -201,6 +232,21 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <li><button type="button" class="go" data-to="s-play-intro">→</button> What I learned from agent playtesting</li>
   </ol>
   <p class="credit">Sam Gilson · Game2Learn Lab · NC State · Guest lecture for Dr. Tiffany Barnes. Use ← / → to change slides. Animations have playback controls and step lists. Press N for speaker notes.</p>
+  <!--FIG s-title--><figure class="dg"><svg viewBox="0 0 1000 230" role="img" aria-label="Two jobs for a language model in a game: running a character inside it, and playing it to find bugs."><defs><marker id="f-title-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-title-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-title-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="40" y="80" width="220" height="70" rx="8" class="dg-acc"/>
+  <text x="150.0" y="121.3" class="dg-t" text-anchor="middle" font-size="18">Language model</text>
+  <rect x="600" y="20" width="360" height="190" rx="10" class="dg-frame"/>
+  <text x="616" y="44" class="dg-s" text-anchor="start" font-size="14">your game</text>
+  <circle cx="690" cy="70" r="11" class="dg-fig"/><path d="M690,81 L690,108 M676,92 L704,92 M690,108 L680,124 M690,108 L700,124" class="dg-figl"/>
+  <rect x="712" y="46" width="64" height="30" rx="12" class="dg-box"/><text x="744" y="66" class="dg-t" text-anchor="middle" font-size="16">…</text>
+  <text x="800" y="98" class="dg-t" text-anchor="start" font-size="16">an NPC</text>
+  <ellipse cx="690" cy="172" rx="15" ry="10" class="dg-bugb"/><path d="M678,165 L668,158 M678,179 L668,186 M690,162 L690,154 M702,165 L712,158 M702,179 L712,186" class="dg-bugl"/>
+  <text x="724" y="178" class="dg-t" text-anchor="start" font-size="16">a bug to find</text>
+  <path d="M260,100 L662,92" class="dg-ln dg-acc-ln" marker-end="url(#f-title-ah-acc)"/>
+  <path d="M260,132 L662,170" class="dg-ln dg-acc-ln" marker-end="url(#f-title-ah-acc)"/>
+  <text x="440" y="76" class="dg-s" text-anchor="middle" font-size="15">runs a character inside it</text>
+  <text x="440" y="186" class="dg-s" text-anchor="middle" font-size="15">plays it to find bugs</text>
+</svg></figure><!--/FIG-->
   <aside class="notes" data-min="0.5">I gave the September lecture on using AI to build games. Today I want to look at something different: letting the model make decisions inside a game. We will look at real examples, sketch a couple of designs, and finish with playtesting work from my own games. The class exercise is the middle of the talk.</aside>
 </section>
 
@@ -216,6 +262,27 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <li>An <b>agent</b> reads game state and chooses an action. That decision can come from a behaviour tree, a learned decision tree, or an LLM.</li>
     <li>The design question: what does an LLM give us that a smaller game AI system cannot?</li>
   </ul>
+  <!--FIG s-scope--><figure class="dg"><svg viewBox="0 0 1000 250" role="img" aria-label="An agent loop: game state goes to one decider, a behaviour tree, a learned decision tree or an LLM, which picks an action that changes the game state."><defs><marker id="f-scope-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-scope-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-scope-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="40" y="80" width="180" height="66" rx="8" class="dg-box"/>
+  <text x="130.0" y="118.6" class="dg-t" text-anchor="middle" font-size="16">Game state</text>
+  <rect x="340" y="24" width="260" height="50" rx="8" class="dg-box"/>
+  <text x="470.0" y="54.6" class="dg-t" text-anchor="middle" font-size="16">Behaviour tree</text>
+  <path d="M220,113 L336,49" class="dg-ln" marker-end="url(#f-scope-ah-mut)"/>
+  <path d="M600,49 L716,113" class="dg-ln" marker-end="url(#f-scope-ah-mut)"/>
+  <rect x="340" y="88" width="260" height="50" rx="8" class="dg-box"/>
+  <text x="470.0" y="118.6" class="dg-t" text-anchor="middle" font-size="16">Learned decision tree</text>
+  <path d="M220,113 L336,113" class="dg-ln" marker-end="url(#f-scope-ah-mut)"/>
+  <path d="M600,113 L716,113" class="dg-ln" marker-end="url(#f-scope-ah-mut)"/>
+  <rect x="340" y="152" width="260" height="50" rx="8" class="dg-acc"/>
+  <text x="470.0" y="182.6" class="dg-t" text-anchor="middle" font-size="16">LLM</text>
+  <path d="M220,113 L336,177" class="dg-ln" marker-end="url(#f-scope-ah-mut)"/>
+  <path d="M600,177 L716,113" class="dg-ln" marker-end="url(#f-scope-ah-mut)"/>
+  <rect x="720" y="80" width="200" height="66" rx="8" class="dg-box"/>
+  <text x="820.0" y="118.6" class="dg-t" text-anchor="middle" font-size="16">Action in the game</text>
+  <path d="M820,146 L820,238 L130,238 L130,150" class="dg-ln" marker-end="url(#f-scope-ah-mut)"/>
+  <text x="470" y="226" class="dg-s" text-anchor="middle" font-size="14">the game changes, and the agent reads it again</text>
+  <text x="470" y="14" class="dg-s" text-anchor="middle" font-size="14">any one of these can be the decider</text>
+</svg></figure><!--/FIG-->
   <aside class="notes" data-min="1">Tie this to the September lecture. Generating a script is one problem. Letting a model choose what an NPC does while somebody plays is another. Use the course definition of an agent: observe, decide, act. Behaviour trees, learned trees and language models are competing ways to make that decision.</aside>
 </section>
 
@@ -231,6 +298,33 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <li>A character prompt can produce good dialogue. It can also forget earlier conversations or offer a quest that the game has no way to run.</li>
     <li>Each new reply needs another call. That matters once thousands of players start talking.</li>
   </ul>
+  <!--FIG s-rare--><figure class="dg"><svg viewBox="0 0 1000 236" role="img" aria-label="Four inputs, the character profile, game state, history and the player&#x27;s question, go to the model; about 100 tokens come back, are checked against game rules and safety, and become the NPC&#x27;s reply while the player waits."><defs><marker id="f-rare-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-rare-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-rare-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="30" y="22" width="300" height="40" rx="8" class="dg-box"/>
+  <text x="180.0" y="47.2" class="dg-t" text-anchor="middle" font-size="15">Character profile and style</text>
+  <path d="M330,42 L416,128" class="dg-ln" marker-end="url(#f-rare-ah-mut)"/>
+  <rect x="30" y="72" width="300" height="40" rx="8" class="dg-box"/>
+  <text x="180.0" y="97.2" class="dg-t" text-anchor="middle" font-size="15">Game state and NPC knowledge</text>
+  <path d="M330,92 L416,128" class="dg-ln" marker-end="url(#f-rare-ah-mut)"/>
+  <rect x="30" y="122" width="300" height="40" rx="8" class="dg-box"/>
+  <text x="180.0" y="147.2" class="dg-t" text-anchor="middle" font-size="15">Conversation history</text>
+  <path d="M330,142 L416,128" class="dg-ln" marker-end="url(#f-rare-ah-mut)"/>
+  <rect x="30" y="172" width="300" height="40" rx="8" class="dg-acc"/>
+  <text x="180.0" y="197.2" class="dg-t" text-anchor="middle" font-size="15">Player’s latest question</text>
+  <path d="M330,192 L416,128" class="dg-ln" marker-end="url(#f-rare-ah-mut)"/>
+  <rect x="420" y="98" width="140" height="60" rx="8" class="dg-acc"/>
+  <text x="490.0" y="134.3" class="dg-t" text-anchor="middle" font-size="18">Model</text>
+  <rect x="640" y="98" width="190" height="60" rx="8" class="dg-box"/>
+  <text x="735.0" y="124.2" class="dg-t" text-anchor="middle" font-size="15">Check: game rules</text>
+  <text x="735.0" y="142.2" class="dg-t" text-anchor="middle" font-size="15">and safety</text>
+  <rect x="870" y="98" width="110" height="60" rx="8" class="dg-box"/>
+  <text x="925.0" y="133.2" class="dg-t" text-anchor="middle" font-size="15">NPC reply</text>
+  <path d="M560,128 L636,128" class="dg-ln" marker-end="url(#f-rare-ah-mut)"/>
+  <path d="M830,128 L866,128" class="dg-ln" marker-end="url(#f-rare-ah-mut)"/>
+  <text x="600" y="186" class="dg-s" text-anchor="middle" font-size="14">about 100</text>
+  <text x="600" y="204" class="dg-s" text-anchor="middle" font-size="14">new tokens</text>
+  <path d="M420,40 L980,40" class="dg-ln dg-mark-ln" stroke-dasharray="6 5" marker-end="url(#f-rare-ah-mut)"/>
+  <text x="700" y="28" class="dg-s" text-anchor="middle" font-size="14">the player is waiting the whole time</text>
+</svg></figure><!--/FIG-->
   <p class="src">Gallotta et al., <a href="https://arxiv.org/abs/2402.18659">Large Language Models and Games: A Survey and Roadmap</a>, IEEE Transactions on Games, 2024.</p>
   <aside class="notes" data-min="1.5">Build the request with the class: persona, world state, history, the player’s line. Then ask what has to happen after the model replies. The survey documents lost context and invented quests. On the next slide, keep this one reply in mind and multiply it across a live game.</aside>
 </section>
@@ -273,6 +367,44 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
   <ul class="why">
     <li>Designers need to know what the character will do on the hundredth conversation. LLM characters need memory management and checks to stay in bounds.</li>
   </ul>
+  <!--FIG s-drift--><figure class="dg"><svg viewBox="0 0 1000 236" role="img" aria-label="Illustrative: a character stays inside the band of its written persona for the first exchanges, then wanders outside it; drift was seen within eight exchanges."><defs><marker id="f-drift-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-drift-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-drift-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="90" y="60" width="806" height="60" class="dg-band"/>
+  <text x="98" y="54" class="dg-s" text-anchor="start" font-size="14">the persona as written</text>
+  <path d="M90,90 L152,84 L214,96 L276,88 L338,80 L400,94 L462,86 L524,100 L586,112 L648,128 L710,118 L772,146 L834,160 L896,172" class="dg-ln dg-acc-ln"/>
+  <circle cx="90" cy="90" r="4.5" class="dg-dot"/>
+  <circle cx="152" cy="84" r="4.5" class="dg-dot"/>
+  <circle cx="214" cy="96" r="4.5" class="dg-dot"/>
+  <circle cx="276" cy="88" r="4.5" class="dg-dot"/>
+  <circle cx="338" cy="80" r="4.5" class="dg-dot"/>
+  <circle cx="400" cy="94" r="4.5" class="dg-dot"/>
+  <circle cx="462" cy="86" r="4.5" class="dg-dot"/>
+  <circle cx="524" cy="100" r="4.5" class="dg-dot"/>
+  <circle cx="586" cy="112" r="4.5" class="dg-dot"/>
+  <circle cx="648" cy="128" r="4.5" class="dg-dot"/>
+  <circle cx="710" cy="118" r="4.5" class="dg-dot"/>
+  <circle cx="772" cy="146" r="4.5" class="dg-dot"/>
+  <circle cx="834" cy="160" r="4.5" class="dg-dot"/>
+  <circle cx="896" cy="172" r="4.5" class="dg-dot"/>
+  <path d="M90,200 L930,200" class="dg-ln" marker-end="url(#f-drift-ah-mut)"/>
+  <text x="90" y="220" class="dg-s" text-anchor="middle" font-size="13">1</text>
+  <text x="152" y="220" class="dg-s" text-anchor="middle" font-size="13">2</text>
+  <text x="214" y="220" class="dg-s" text-anchor="middle" font-size="13">3</text>
+  <text x="276" y="220" class="dg-s" text-anchor="middle" font-size="13">4</text>
+  <text x="338" y="220" class="dg-s" text-anchor="middle" font-size="13">5</text>
+  <text x="400" y="220" class="dg-s" text-anchor="middle" font-size="13">6</text>
+  <text x="462" y="220" class="dg-s" text-anchor="middle" font-size="13">7</text>
+  <text x="524" y="220" class="dg-s" text-anchor="middle" font-size="13">8</text>
+  <text x="586" y="220" class="dg-s" text-anchor="middle" font-size="13">9</text>
+  <text x="648" y="220" class="dg-s" text-anchor="middle" font-size="13">10</text>
+  <text x="710" y="220" class="dg-s" text-anchor="middle" font-size="13">11</text>
+  <text x="772" y="220" class="dg-s" text-anchor="middle" font-size="13">12</text>
+  <text x="834" y="220" class="dg-s" text-anchor="middle" font-size="13">13</text>
+  <text x="896" y="220" class="dg-s" text-anchor="middle" font-size="13">14</text>
+  <path d="M524,40 L524,196" class="dg-ln dg-mark-ln" stroke-dasharray="6 5"/>
+  <text x="532" y="30" class="dg-s" text-anchor="start" font-size="14">drift within eight exchanges (chatbot study)</text>
+  <text x="960" y="220" class="dg-s" text-anchor="end" font-size="13">turn</text>
+  <text x="990" y="160" class="dg-s" text-anchor="end" font-size="13">(illustrative)</text>
+</svg></figure><!--/FIG-->
   <p class="src">Li et al., <a href="https://arxiv.org/abs/2402.10962">Measuring and Controlling Instruction (In)Stability in Language Model Dialogs</a>, COLM 2024. de Araujo et al., <a href="https://arxiv.org/abs/2512.12775">Persistent Personas?</a>, EACL 2026. Park et al., <a href="https://arxiv.org/abs/2304.03442">Generative Agents</a>, UIST 2023, §7.2. Samuel et al., <a href="https://arxiv.org/abs/2407.18416">PersonaGym</a>, EMNLP Findings 2025.</p>
   <aside class="notes" data-min="1.5">Consistency is a design requirement, especially when players can repeat an encounter. The Smallville example is a good one: an NPC gradually picks up other characters’ interests. A model can make a character feel spontaneous, but the studio still has to keep that character recognisable across long conversations.</aside>
 </section>
@@ -310,6 +442,36 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
       <li>Shared context or popular replies could still be cached.</li>
       <li>What is clear: the NPC can talk freely, but the game restricts which state changes its dialogue can cause.</li></ul></div>
   </div>
+  <!--FIG s-wwm--><figure class="dg"><svg viewBox="0 0 1000 250" role="img" aria-label="Where Winds Meet: players can say anything to an NPC, but the game lets the dialogue change only a few things: friendship, hostility, a weekly gift, or a task marked complete, which players have talked NPCs into."><defs><marker id="f-wwm-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-wwm-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-wwm-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="20" y="34" width="210" height="44" rx="18" class="dg-box"/>
+  <text x="125.0" y="61.2" class="dg-t" text-anchor="middle" font-size="15">“Can we be friends?”</text>
+  <path d="M230,56 L296,125" class="dg-ln" marker-end="url(#f-wwm-ah-mut)"/>
+  <rect x="20" y="100" width="210" height="44" rx="18" class="dg-box"/>
+  <text x="125.0" y="127.2" class="dg-t" text-anchor="middle" font-size="15">“Tell me a secret.”</text>
+  <path d="M230,122 L296,125" class="dg-ln" marker-end="url(#f-wwm-ah-mut)"/>
+  <rect x="20" y="166" width="210" height="44" rx="18" class="dg-box"/>
+  <text x="125.0" y="193.2" class="dg-t" text-anchor="middle" font-size="15">“Mark my task done.”</text>
+  <path d="M230,188 L296,125" class="dg-ln" marker-end="url(#f-wwm-ah-mut)"/>
+  <rect x="300" y="90" width="190" height="70" rx="8" class="dg-acc"/>
+  <text x="395.0" y="130.6" class="dg-t" text-anchor="middle" font-size="16">NPC talks freely</text>
+  <rect x="560" y="18" width="16" height="214" rx="4" class="dg-gate"/>
+  <text x="568" y="246" class="dg-s" text-anchor="middle" font-size="14">the game decides</text>
+  <path d="M490,125 L556,125" class="dg-ln" marker-end="url(#f-wwm-ah-mut)"/>
+  <rect x="640" y="22" width="220" height="42" rx="8" class="dg-box"/>
+  <text x="750.0" y="48.2" class="dg-t" text-anchor="middle" font-size="15">Friendship</text>
+  <path d="M576,125 L636,43" class="dg-ln" marker-end="url(#f-wwm-ah-mut)"/>
+  <rect x="640" y="76" width="220" height="42" rx="8" class="dg-box"/>
+  <text x="750.0" y="102.2" class="dg-t" text-anchor="middle" font-size="15">Hostility</text>
+  <path d="M576,125 L636,97" class="dg-ln" marker-end="url(#f-wwm-ah-mut)"/>
+  <rect x="640" y="130" width="220" height="42" rx="8" class="dg-box"/>
+  <text x="750.0" y="156.2" class="dg-t" text-anchor="middle" font-size="15">Weekly gift</text>
+  <path d="M576,125 L636,151" class="dg-ln" marker-end="url(#f-wwm-ah-mut)"/>
+  <rect x="640" y="184" width="220" height="42" rx="8" class="dg-badbox"/>
+  <text x="750.0" y="210.2" class="dg-t" text-anchor="middle" font-size="15">Task marked complete</text>
+  <path d="M576,125 L636,205" class="dg-ln dg-bad-ln" stroke-dasharray="6 5" marker-end="url(#f-wwm-ah-bad)"/>
+  <text x="870" y="208" class="dg-bad-t" text-anchor="start" font-size="14">✗ players talked</text>
+  <text x="870" y="226" class="dg-bad-t" text-anchor="start" font-size="14">NPCs into this</text>
+</svg></figure><!--/FIG-->
   <p class="src"><a href="https://store.steampowered.com/app/3564740/">Steam store page</a>, read 2026-11-18; disclosure date from <a href="https://arcanumrpgs.com/blog/where-winds-meet-ai/">Arcanum RPGs</a>, 26 Sep 2026, comparing Wayback snapshots. <a href="https://allthings.how/where-winds-meet-and-ai-how-the-mmos-chatbot-npcs-work/">AllThings.How</a>, 22 Nov 2025. <a href="https://kotaku.com/where-winds-meet-ai-npc-llm-chatgpt-steam-2000650074">Kotaku</a>, Dec 2025. Non-determinism: <a href="https://space4games.com/en/games-en/where-winds-meet-how-to-win-over-fu-lushou-and-fu-lubao-even-when-the-ai-bugs-out/">Space4Games</a>, 27 Nov 2025.</p>
   <aside class="notes" data-min="1.5">Here is a game the room might recognise. I assumed the studio would cache lots of responses, but I could not confirm that from public material. Guides show replies changing across attempts. The stronger finding is about game-state control: the dialogue can be open-ended while the outcomes stay limited. Ask what goes wrong when players can talk a model into completing a quest.</aside>
 </section>
@@ -332,6 +494,38 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <div><h3>Handle a crowd</h3><ul><li>Rate limits matter. Twenty million replies an hour is about 5,600 requests every second.</li><li>Queue requests or use a written fallback when demand spikes.</li><li>Do offline work in cheaper batches. Players cannot wait for a batch job.</li></ul></div>
     <div><h3>Keep control in the game</h3><ul><li>Check the player’s input and the NPC’s reply.</li><li>Translate model output into a small set of valid game actions.</li><li>In PUBG Ally, a behaviour tree handles fast actions while the model makes higher-level choices.</li></ul></div>
   </div>
+  <!--FIG s-harness--><figure class="dg"><svg viewBox="0 0 1000 214" role="img" aria-label="The harness around the model: player input is checked, queued under a rate limit, sent to a small model first, checked again and turned into valid game actions; a written fallback covers demand spikes and a behaviour tree handles fast actions."><defs><marker id="f-harness-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-harness-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-harness-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="20" y="24" width="130" height="64" rx="8" class="dg-box"/>
+  <text x="85.0" y="52.2" class="dg-t" text-anchor="middle" font-size="15">Player</text>
+  <text x="85.0" y="70.2" class="dg-t" text-anchor="middle" font-size="15">input</text>
+  <rect x="186" y="24" width="130" height="64" rx="8" class="dg-box"/>
+  <text x="251.0" y="52.2" class="dg-t" text-anchor="middle" font-size="15">Input</text>
+  <text x="251.0" y="70.2" class="dg-t" text-anchor="middle" font-size="15">check</text>
+  <rect x="352" y="24" width="130" height="64" rx="8" class="dg-box"/>
+  <text x="417.0" y="52.2" class="dg-t" text-anchor="middle" font-size="15">Queue and</text>
+  <text x="417.0" y="70.2" class="dg-t" text-anchor="middle" font-size="15">rate limit</text>
+  <rect x="518" y="24" width="130" height="64" rx="8" class="dg-acc"/>
+  <text x="583.0" y="52.2" class="dg-t" text-anchor="middle" font-size="15">Model</text>
+  <text x="583.0" y="70.2" class="dg-t" text-anchor="middle" font-size="15">(small first)</text>
+  <rect x="684" y="24" width="130" height="64" rx="8" class="dg-box"/>
+  <text x="749.0" y="52.2" class="dg-t" text-anchor="middle" font-size="15">Output</text>
+  <text x="749.0" y="70.2" class="dg-t" text-anchor="middle" font-size="15">check</text>
+  <rect x="850" y="24" width="130" height="64" rx="8" class="dg-box"/>
+  <text x="915.0" y="52.2" class="dg-t" text-anchor="middle" font-size="15">Valid game</text>
+  <text x="915.0" y="70.2" class="dg-t" text-anchor="middle" font-size="15">actions only</text>
+  <path d="M150,56 L182,56" class="dg-ln" marker-end="url(#f-harness-ah-mut)"/>
+  <path d="M316,56 L348,56" class="dg-ln" marker-end="url(#f-harness-ah-mut)"/>
+  <path d="M482,56 L514,56" class="dg-ln" marker-end="url(#f-harness-ah-mut)"/>
+  <path d="M648,56 L680,56" class="dg-ln" marker-end="url(#f-harness-ah-mut)"/>
+  <path d="M814,56 L846,56" class="dg-ln" marker-end="url(#f-harness-ah-mut)"/>
+  <rect x="300" y="140" width="234" height="52" rx="8" class="dg-box"/>
+  <text x="417.0" y="171.2" class="dg-t" text-anchor="middle" font-size="15">Written fallback line</text>
+  <path d="M417,88 L417,136" class="dg-ln" stroke-dasharray="6 5" marker-end="url(#f-harness-ah-mut)"/>
+  <text x="427" y="118" class="dg-s" text-anchor="start" font-size="13">demand spike</text>
+  <rect x="700" y="140" width="280" height="52" rx="8" class="dg-box"/>
+  <text x="840.0" y="171.2" class="dg-t" text-anchor="middle" font-size="15">Behaviour tree: fast actions</text>
+  <path d="M915,136 L915,92" class="dg-ln" marker-end="url(#f-harness-ah-mut)"/>
+</svg></figure><!--/FIG-->
   <p class="src">Ong et al., <a href="https://arxiv.org/abs/2406.18665">RouteLLM</a>, ICLR 2025. <a href="https://developers.openai.com/api/docs/guides/rate-limits">OpenAI rate limits</a> and <a href="https://developers.openai.com/api/docs/guides/moderation">moderation</a>, read 2026-11-18. NVIDIA, <a href="https://developer.nvidia.com/blog/how-krafton-built-pubg-ally-a-co-playable-character-powered-by-nvidia-ace/">How Krafton built PUBG Ally</a>, 25 Jun 2026. History arithmetic from the estimate on the cost slide (each exchange adds about 150 tokens). Hejmadi (Arm), <a href="https://attend.gdcevents.gdconf.com/event/gdc-festival-of-gaming-2026/planning/UGxhbm5pbmdfNDMyNTA1OQ==">Augmenting NPCs with LLMs: Practical Experience from NC State University &amp; Arm</a>, GDC 2026.</p>
   <aside class="notes" data-min="1.5">This is the system you actually have to ship. It decides what state the model sees, what actions it can request, how much compute it gets and what happens when it fails. There was a GDC 2026 talk from Arm and NC State about on-device NPCs and mapping model output to game actions. That is a useful local example.</aside>
 </section>
@@ -345,6 +539,57 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <div><h3>Voyager (Minecraft)</h3><ul><li>An LLM writes Minecraft skills as code, tests them and saves them.</li><li>Later tasks use the saved skills without regenerating them.</li></ul></div>
     <div><h3>Let the model write the AI</h3><ul><li>PORTAL generates behaviour trees across thousands of shooter games. Those trees control play.</li><li>In LLM-BRAIn, observers distinguished generated robot trees from human-made ones in 4.53 out of 10 trials.</li></ul></div>
   </div>
+  <!--FIG s-research--><figure class="dg"><svg viewBox="0 0 1000 236" role="img" aria-label="Smallville&#x27;s party: of 25 agents, 12 heard about the Valentine&#x27;s party and 5 attended. Voyager&#x27;s loop: write a skill as code, test it, save it to a library, reuse it on later tasks."><defs><marker id="f-research-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-research-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-research-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <circle cx="60" cy="40" r="13" class="dg-att"/>
+  <circle cx="106" cy="40" r="13" class="dg-att"/>
+  <circle cx="152" cy="40" r="13" class="dg-att"/>
+  <circle cx="198" cy="40" r="13" class="dg-att"/>
+  <circle cx="244" cy="40" r="13" class="dg-att"/>
+  <circle cx="60" cy="78" r="13" class="dg-heard"/>
+  <circle cx="106" cy="78" r="13" class="dg-heard"/>
+  <circle cx="152" cy="78" r="13" class="dg-heard"/>
+  <circle cx="198" cy="78" r="13" class="dg-heard"/>
+  <circle cx="244" cy="78" r="13" class="dg-heard"/>
+  <circle cx="60" cy="116" r="13" class="dg-heard"/>
+  <circle cx="106" cy="116" r="13" class="dg-heard"/>
+  <circle cx="152" cy="116" r="13" class="dg-none"/>
+  <circle cx="198" cy="116" r="13" class="dg-none"/>
+  <circle cx="244" cy="116" r="13" class="dg-none"/>
+  <circle cx="60" cy="154" r="13" class="dg-none"/>
+  <circle cx="106" cy="154" r="13" class="dg-none"/>
+  <circle cx="152" cy="154" r="13" class="dg-none"/>
+  <circle cx="198" cy="154" r="13" class="dg-none"/>
+  <circle cx="244" cy="154" r="13" class="dg-none"/>
+  <circle cx="60" cy="192" r="13" class="dg-none"/>
+  <circle cx="106" cy="192" r="13" class="dg-none"/>
+  <circle cx="152" cy="192" r="13" class="dg-none"/>
+  <circle cx="198" cy="192" r="13" class="dg-none"/>
+  <circle cx="244" cy="192" r="13" class="dg-none"/>
+  <text x="30" y="18" class="dg-h" text-anchor="start" font-size="15">Smallville: 25 agents, one party</text>
+  <circle cx="320" cy="66" r="11" class="dg-att"/>
+  <text x="340" y="71" class="dg-t" text-anchor="start" font-size="15">attended (5)</text>
+  <circle cx="320" cy="108" r="11" class="dg-heard"/>
+  <text x="340" y="113" class="dg-t" text-anchor="start" font-size="15">heard, did not go (7)</text>
+  <circle cx="320" cy="150" r="11" class="dg-none"/>
+  <text x="340" y="155" class="dg-t" text-anchor="start" font-size="15">never heard (13)</text>
+  <text x="540" y="18" class="dg-h" text-anchor="start" font-size="15">Voyager: skills kept as code</text>
+  <rect x="560" y="40" width="170" height="58" rx="8" class="dg-box"/>
+  <text x="645.0" y="65.2" class="dg-t" text-anchor="middle" font-size="15">Write a skill</text>
+  <text x="645.0" y="83.2" class="dg-t" text-anchor="middle" font-size="15">as code</text>
+  <rect x="790" y="40" width="170" height="58" rx="8" class="dg-box"/>
+  <text x="875.0" y="65.2" class="dg-t" text-anchor="middle" font-size="15">Test it in</text>
+  <text x="875.0" y="83.2" class="dg-t" text-anchor="middle" font-size="15">Minecraft</text>
+  <rect x="790" y="150" width="170" height="58" rx="8" class="dg-box"/>
+  <text x="875.0" y="175.2" class="dg-t" text-anchor="middle" font-size="15">Save it to</text>
+  <text x="875.0" y="193.2" class="dg-t" text-anchor="middle" font-size="15">the library</text>
+  <rect x="560" y="150" width="170" height="58" rx="8" class="dg-box"/>
+  <text x="645.0" y="175.2" class="dg-t" text-anchor="middle" font-size="15">Reuse it on</text>
+  <text x="645.0" y="193.2" class="dg-t" text-anchor="middle" font-size="15">later tasks</text>
+  <path d="M730,69 L786,69" class="dg-ln" marker-end="url(#f-research-ah-mut)"/>
+  <path d="M875,98 L875,146" class="dg-ln" marker-end="url(#f-research-ah-mut)"/>
+  <path d="M790,179 L734,179" class="dg-ln" marker-end="url(#f-research-ah-mut)"/>
+  <path d="M645,150 L645,102" class="dg-ln" marker-end="url(#f-research-ah-mut)"/>
+</svg></figure><!--/FIG-->
   <p class="src">Park et al., <a href="https://arxiv.org/abs/2304.03442">Generative Agents: Interactive Simulacra of Human Behavior</a>, UIST 2023, §7.1 and §8.2. Wang et al., <a href="https://arxiv.org/abs/2305.16291">Voyager</a>, 2023. Xu et al., <a href="https://arxiv.org/abs/2503.13356">Agents Play Thousands of 3D Video Games (PORTAL)</a>, 2025. Lykov and Tsetserukou, <a href="https://arxiv.org/abs/2305.19352">LLM-BRAIn</a>, 2023.</p>
   <aside class="notes" data-min="1.5">Smallville is the model for the life sim we will discuss in the activity. The Valentine’s party was a memorable example of agents coordinating without a fixed script. It also took days of processing and substantial token cost for two game days. Voyager and PORTAL take another route: generate reusable code or trees, then execute those in the game.</aside>
 </section>
@@ -357,6 +602,36 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <div class="hi"><h3>Cul-de-sac</h3><ul><li>A 20-hour, single-player neighbourhood sim.</li><li>You share a street with 12 neighbours. They remember your actions, gossip and follow daily routines.</li><li>The hook: players come back to see how the neighbourhood has changed.</li><li>Team of six. No budget for per-player inference.</li></ul></div>
     <div><h3>Night Shift</h3><ul><li>Eight museum levels built around patrols and line of sight.</li><li>Guards investigate noises and call for backup when something looks wrong.</li><li>Designers tune patrol routes and sight cones for predictable difficulty.</li><li>Speedrunners repeat the same encounters hundreds of times.</li></ul></div>
   </div>
+  <!--FIG s-act-games--><figure class="dg"><svg viewBox="0 0 1000 250" role="img" aria-label="Cul-de-sac: a street of 12 houses whose neighbours gossip with each other. Night Shift: a museum room with a guard on a patrol route, a sight cone and a noise to investigate."><defs><marker id="f-games-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-games-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-games-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="40" y="112" width="400" height="26" rx="4" class="dg-road"/>
+  <path d="M60,100 L60,82 L78,70 L96,82 L96,100 z" class="dg-house"/>
+  <path d="M60,180 L60,162 L78,150 L96,162 L96,180 z" class="dg-house"/>
+  <path d="M126,100 L126,82 L144,70 L162,82 L162,100 z" class="dg-house"/>
+  <path d="M126,180 L126,162 L144,150 L162,162 L162,180 z" class="dg-house"/>
+  <path d="M192,100 L192,82 L210,70 L228,82 L228,100 z" class="dg-house"/>
+  <path d="M192,180 L192,162 L210,150 L228,162 L228,180 z" class="dg-house"/>
+  <path d="M258,100 L258,82 L276,70 L294,82 L294,100 z" class="dg-house"/>
+  <path d="M258,180 L258,162 L276,150 L294,162 L294,180 z" class="dg-house"/>
+  <path d="M324,100 L324,82 L342,70 L360,82 L360,100 z" class="dg-house"/>
+  <path d="M324,180 L324,162 L342,150 L360,162 L360,180 z" class="dg-house"/>
+  <path d="M390,100 L390,82 L408,70 L426,82 L426,100 z" class="dg-house"/>
+  <path d="M390,180 L390,162 L408,150 L426,162 L426,180 z" class="dg-house"/>
+  <path d="M78,66 Q177.0,20 276,66" class="dg-ln dg-acc-ln" stroke-dasharray="4 4" fill="none"/>
+  <path d="M210,66 Q309.0,32 408,66" class="dg-ln dg-acc-ln" stroke-dasharray="4 4" fill="none"/>
+  <path d="M144,66 Q243.0,26 342,66" class="dg-ln dg-acc-ln" stroke-dasharray="4 4" fill="none"/>
+  <text x="240" y="215" class="dg-t" text-anchor="middle" font-size="15">Cul-de-sac: 12 neighbours who</text>
+  <text x="240" y="235" class="dg-t" text-anchor="middle" font-size="15">remember you and gossip</text>
+  <rect x="560" y="20" width="400" height="170" rx="6" class="dg-frame"/>
+  <rect x="600" y="50" width="320" height="110" rx="4" class="dg-patrol" fill="none"/>
+  <path d="M700,50 L840,30 L830,104 z" class="dg-cone"/>
+  <circle cx="700" cy="50" r="10" class="dg-att"/>
+  <text x="700" y="82" class="dg-s" text-anchor="middle" font-size="13">guard</text>
+  <path d="M880,120 l6,-14 l6,14 l14,4 l-14,6 l-6,14 l-6,-14 l-14,-6 z" class="dg-noise"/>
+  <text x="890" y="172" class="dg-s" text-anchor="middle" font-size="13">noise</text>
+  <text x="640" y="120" class="dg-s" text-anchor="start" font-size="13">patrol route</text>
+  <text x="760" y="215" class="dg-t" text-anchor="middle" font-size="15">Night Shift: patrols, sight cones,</text>
+  <text x="760" y="235" class="dg-t" text-anchor="middle" font-size="15">guards who investigate</text>
+</svg></figure><!--/FIG-->
   <aside class="notes" data-min="1">Both games are invented for this exercise. Read the two briefs, then ask pairs to pick one. Cul-de-sac leaves room for social improvisation. Night Shift gives the design team a reason to demand precise, repeatable guard behaviour. Let the class discover that trade-off themselves.</aside>
 </section>
 
@@ -365,6 +640,27 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
   <h2>Where would you put an LLM in your game?</h2>
   <p class="prompt">Your task: add generative AI to Cul-de-sac or Night Shift. Which NPC or system does the model power? What does it read, what does it output, and when does it run: live during play, or while the game is being built?</p>
   <p class="timer">Four minutes. Then we will hear a few designs.</p>
+  <!--FIG s-act-q1--><figure class="dg"><svg viewBox="0 0 1000 214" role="img" aria-label="A blank design to fill in: which NPC or system, what the model reads, what it outputs, and whether it runs live during play or while the game is built."><defs><marker id="f-q1-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-q1-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-q1-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="20" y="30" width="200" height="70" rx="8" class="dg-blank"/>
+  <text x="120.0" y="61.0" class="dg-t" text-anchor="middle" font-size="16">Which NPC</text>
+  <text x="120.0" y="80.2" class="dg-t" text-anchor="middle" font-size="16">or system?</text>
+  <rect x="270" y="30" width="200" height="70" rx="8" class="dg-blank"/>
+  <text x="370.0" y="61.0" class="dg-t" text-anchor="middle" font-size="16">What does</text>
+  <text x="370.0" y="80.2" class="dg-t" text-anchor="middle" font-size="16">it read?</text>
+  <rect x="520" y="30" width="160" height="70" rx="8" class="dg-acc"/>
+  <text x="600.0" y="71.3" class="dg-t" text-anchor="middle" font-size="18">Model</text>
+  <rect x="730" y="30" width="220" height="70" rx="8" class="dg-blank"/>
+  <text x="840.0" y="61.0" class="dg-t" text-anchor="middle" font-size="16">What does</text>
+  <text x="840.0" y="80.2" class="dg-t" text-anchor="middle" font-size="16">it output?</text>
+  <path d="M220,65 L266,65" class="dg-ln" marker-end="url(#f-q1-ah-mut)"/>
+  <path d="M470,65 L516,65" class="dg-ln" marker-end="url(#f-q1-ah-mut)"/>
+  <path d="M680,65 L726,65" class="dg-ln" marker-end="url(#f-q1-ah-mut)"/>
+  <text x="330" y="160" class="dg-h" text-anchor="end" font-size="16">When does it run?</text>
+  <rect x="350" y="136" width="200" height="40" rx="20" class="dg-blank"/>
+  <text x="450.0" y="161.2" class="dg-t" text-anchor="middle" font-size="15">live during play</text>
+  <rect x="570" y="136" width="260" height="40" rx="20" class="dg-blank"/>
+  <text x="700.0" y="161.2" class="dg-t" text-anchor="middle" font-size="15">while the game is built</text>
+</svg></figure><!--/FIG-->
   <aside class="notes" data-min="4.5">Give pairs four minutes. The task is to add an LLM or another generative model to one of the two games, somewhere it does real work. Ask for a specific NPC or system, a specific input and a specific output. Take two or three designs and put them on the board. Try to hear one from each game so the trade-offs are different.</aside>
 </section>
 
@@ -372,6 +668,48 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
   <div class="eyebrow"><span class="kind activity">activity</span> design review</div>
   <h2>What can the model do that a behaviour tree can’t?</h2>
   <p class="prompt">Name one thing your design gets from generative AI that a behaviour tree, a dialogue tree or hand-written content could not give it. What would the player see or hear that was impossible before? Is that worth the cost?</p>
+  <!--FIG s-act-q2--><figure class="dg"><svg viewBox="0 0 1000 240" role="img" aria-label="On the left, the player picks one of three menu options and a tree returns one of three authored lines. On the right, the player types anything and the model writes a new reply each time."><defs><marker id="f-q2-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-q2-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-q2-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <text x="240" y="20" class="dg-h" text-anchor="middle" font-size="15">Behaviour tree or dialogue tree</text>
+  <rect x="40" y="40" width="50" height="42" rx="8" class="dg-box"/>
+  <text x="65.0" y="66.6" class="dg-t" text-anchor="middle" font-size="16">A</text>
+  <path d="M90,61 L156,119" class="dg-ln" marker-end="url(#f-q2-ah-mut)"/>
+  <rect x="40" y="98" width="50" height="42" rx="8" class="dg-box"/>
+  <text x="65.0" y="124.6" class="dg-t" text-anchor="middle" font-size="16">B</text>
+  <path d="M90,119 L156,119" class="dg-ln" marker-end="url(#f-q2-ah-mut)"/>
+  <rect x="40" y="156" width="50" height="42" rx="8" class="dg-box"/>
+  <text x="65.0" y="182.6" class="dg-t" text-anchor="middle" font-size="16">C</text>
+  <path d="M90,177 L156,119" class="dg-ln" marker-end="url(#f-q2-ah-mut)"/>
+  <rect x="160" y="94" width="120" height="50" rx="8" class="dg-box"/>
+  <text x="220.0" y="124.6" class="dg-t" text-anchor="middle" font-size="16">Tree</text>
+  <rect x="330" y="40" width="130" height="42" rx="8" class="dg-box"/>
+  <text x="395.0" y="65.9" class="dg-t" text-anchor="middle" font-size="14">authored line 1</text>
+  <path d="M280,119 L326,61" class="dg-ln" marker-end="url(#f-q2-ah-mut)"/>
+  <rect x="330" y="98" width="130" height="42" rx="8" class="dg-box"/>
+  <text x="395.0" y="123.9" class="dg-t" text-anchor="middle" font-size="14">authored line 2</text>
+  <path d="M280,119 L326,119" class="dg-ln" marker-end="url(#f-q2-ah-mut)"/>
+  <rect x="330" y="156" width="130" height="42" rx="8" class="dg-box"/>
+  <text x="395.0" y="181.9" class="dg-t" text-anchor="middle" font-size="14">authored line 3</text>
+  <path d="M280,119 L326,177" class="dg-ln" marker-end="url(#f-q2-ah-mut)"/>
+  <path d="M500,20 L500,220" class="dg-ln" stroke-dasharray="3 6"/>
+  <text x="760" y="20" class="dg-h" text-anchor="middle" font-size="15">Generative model</text>
+  <rect x="540" y="90" width="170" height="58" rx="18" class="dg-acc"/>
+  <text x="625.0" y="115.2" class="dg-t" text-anchor="middle" font-size="15">“anything the</text>
+  <text x="625.0" y="133.2" class="dg-t" text-anchor="middle" font-size="15">player types”</text>
+  <rect x="750" y="94" width="110" height="50" rx="8" class="dg-acc"/>
+  <text x="805.0" y="124.6" class="dg-t" text-anchor="middle" font-size="16">Model</text>
+  <path d="M710,119 L746,119" class="dg-ln" marker-end="url(#f-q2-ah-mut)"/>
+  <rect x="892" y="40" width="70" height="20" rx="6" class="dg-new"/>
+  <path d="M860,119 L888,50" class="dg-ln"/>
+  <rect x="892" y="74" width="58" height="20" rx="6" class="dg-new"/>
+  <path d="M860,119 L888,84" class="dg-ln"/>
+  <rect x="892" y="108" width="46" height="20" rx="6" class="dg-new"/>
+  <path d="M860,119 L888,118" class="dg-ln"/>
+  <rect x="892" y="142" width="70" height="20" rx="6" class="dg-new"/>
+  <path d="M860,119 L888,152" class="dg-ln"/>
+  <rect x="892" y="176" width="58" height="20" rx="6" class="dg-new"/>
+  <path d="M860,119 L888,186" class="dg-ln"/>
+  <text x="925" y="220" class="dg-s" text-anchor="middle" font-size="13">a new reply each time</text>
+</svg></figure><!--/FIG-->
   <aside class="notes" data-min="1">Push for the affordances that are new: open-ended replies to anything the player types, content no one authored line by line, reading free text or speech, improvising inside a persona. Ask what the player sees or hears, rather than accepting general claims about more intelligent NPCs. If the answer is something a tree could already do, ask what the model adds. The next slides give you follow-up questions to choose from. Use whichever ones challenge the designs the class proposed.</aside>
 </section>
 
@@ -383,6 +721,27 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <li>Halo 2 used roughly 50 authored AI behaviours. The design emphasised readable intentions and control for designers.</li>
     <li>"It may not be the behavior we want for the game experience." (Dave Mark, on machine-learned behaviour)</li>
   </ul>
+  <!--FIG s-fu-bt--><figure class="dg"><svg viewBox="0 0 1000 214" role="img" aria-label="A guard&#x27;s behaviour tree: a selector tries chase if the player is seen, investigate if a noise is heard, or patrol; a fourth branch, talking to the player, is marked as the one place a language model might go."><defs><marker id="f-bt-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-bt-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-bt-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="400" y="14" width="200" height="50" rx="8" class="dg-box"/>
+  <text x="500.0" y="44.2" class="dg-t" text-anchor="middle" font-size="15">Selector: try in order</text>
+  <rect x="20" y="120" width="225" height="66" rx="8" class="dg-box"/>
+  <text x="132.5" y="149.2" class="dg-t" text-anchor="middle" font-size="15">See the player?</text>
+  <text x="132.5" y="167.2" class="dg-t" text-anchor="middle" font-size="15">Chase</text>
+  <path d="M500,64 L132,116" class="dg-ln" marker-end="url(#f-bt-ah-mut)"/>
+  <rect x="265" y="120" width="225" height="66" rx="8" class="dg-box"/>
+  <text x="377.5" y="149.2" class="dg-t" text-anchor="middle" font-size="15">Heard a noise?</text>
+  <text x="377.5" y="167.2" class="dg-t" text-anchor="middle" font-size="15">Investigate</text>
+  <path d="M500,64 L377,116" class="dg-ln" marker-end="url(#f-bt-ah-mut)"/>
+  <rect x="510" y="120" width="225" height="66" rx="8" class="dg-box"/>
+  <text x="622.5" y="149.2" class="dg-t" text-anchor="middle" font-size="15">Otherwise</text>
+  <text x="622.5" y="167.2" class="dg-t" text-anchor="middle" font-size="15">Patrol</text>
+  <path d="M500,64 L622,116" class="dg-ln" marker-end="url(#f-bt-ah-mut)"/>
+  <rect x="755" y="120" width="225" height="66" rx="8" class="dg-blank"/>
+  <text x="867.5" y="149.2" class="dg-t" text-anchor="middle" font-size="15">Player talks to you?</text>
+  <text x="867.5" y="167.2" class="dg-t" text-anchor="middle" font-size="15">LLM here?</text>
+  <path d="M500,64 L867,116" class="dg-ln" stroke-dasharray="6 5" marker-end="url(#f-bt-ah-mut)"/>
+  <text x="500" y="210" class="dg-s" text-anchor="middle" font-size="14">each branch is authored, readable and tunable</text>
+</svg></figure><!--/FIG-->
   <p class="src">Isla, <a href="https://www.gamedeveloper.com/programming/gdc-2005-proceeding-handling-complexity-in-the-i-halo-2-i-ai">Handling Complexity in the Halo 2 AI</a>, GDC 2005. Graft, <a href="https://gamedeveloper.com/programming/when-artificial-intelligence-in-video-games-becomes-artificially-intelligent">When artificial intelligence in video games becomes… artificially intelligent</a>, Game Developer, 22 Sep 2015.</p>
   <aside class="notes" data-min="1">Start here if a group put a language model behind the guards in Night Shift. A player needs to learn the guards’ patterns, and the designer needs to tune them. Halo 2 is the classic reference for readable and designer-controlled behaviour. Keep the question tied to gameplay: what can the model do that warrants the extra system?</aside>
 </section>
@@ -395,6 +754,40 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <li>Forza’s Drivatar learns driving patterns, with designer limits on aggression and collisions.</li>
     <li>Killer Instinct’s Shadows reproduce a player’s combos and mistakes for offline matches. Microsoft has not disclosed the algorithm.</li>
   </ul>
+  <!--FIG s-fu-dt--><figure class="dg"><svg viewBox="0 0 1000 240" role="img" aria-label="Illustrative: logged player matches train a decision tree (opponent close? health low?) that picks block, combo or approach, and designer limits cap aggression and collisions."><defs><marker id="f-dt-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-dt-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-dt-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="30" y="70" width="150" height="90" rx="6" class="dg-box"/>
+  <rect x="38" y="62" width="150" height="90" rx="6" class="dg-box"/>
+  <rect x="46" y="54" width="150" height="90" rx="6" class="dg-box"/>
+  <text x="121" y="108" class="dg-t" text-anchor="middle" font-size="15">the player’s</text>
+  <text x="121" y="128" class="dg-t" text-anchor="middle" font-size="15">logged matches</text>
+  <path d="M196,110 L276,110" class="dg-ln" marker-end="url(#f-dt-ah-mut)"/>
+  <text x="236" y="98" class="dg-s" text-anchor="middle" font-size="13">train</text>
+  <rect x="280" y="80" width="170" height="56" rx="8" class="dg-acc"/>
+  <text x="365.0" y="113.2" class="dg-t" text-anchor="middle" font-size="15">Opponent close?</text>
+  <rect x="500" y="20" width="150" height="50" rx="8" class="dg-acc"/>
+  <text x="575.0" y="50.2" class="dg-t" text-anchor="middle" font-size="15">Health low?</text>
+  <rect x="500" y="150" width="150" height="50" rx="8" class="dg-box"/>
+  <text x="575.0" y="180.2" class="dg-t" text-anchor="middle" font-size="15">Approach</text>
+  <rect x="700" y="4" width="120" height="44" rx="8" class="dg-box"/>
+  <text x="760.0" y="31.2" class="dg-t" text-anchor="middle" font-size="15">Block</text>
+  <rect x="700" y="64" width="120" height="44" rx="8" class="dg-box"/>
+  <text x="760.0" y="91.2" class="dg-t" text-anchor="middle" font-size="15">Combo</text>
+  <path d="M450,100 L496,50" class="dg-ln" marker-end="url(#f-dt-ah-mut)"/>
+  <path d="M450,116 L496,170" class="dg-ln" marker-end="url(#f-dt-ah-mut)"/>
+  <text x="470" y="62" class="dg-s" text-anchor="middle" font-size="13">yes</text>
+  <text x="470" y="170" class="dg-s" text-anchor="middle" font-size="13">no</text>
+  <path d="M650,40 L696,28" class="dg-ln" marker-end="url(#f-dt-ah-mut)"/>
+  <path d="M650,52 L696,84" class="dg-ln" marker-end="url(#f-dt-ah-mut)"/>
+  <text x="668" y="24" class="dg-s" text-anchor="middle" font-size="13">yes</text>
+  <text x="668" y="84" class="dg-s" text-anchor="middle" font-size="13">no</text>
+  <rect x="860" y="40" width="130" height="120" rx="8" class="dg-mark"/>
+  <text x="925.0" y="79.7" class="dg-t" text-anchor="middle" font-size="14">Designer</text>
+  <text x="925.0" y="96.5" class="dg-t" text-anchor="middle" font-size="14">limits:</text>
+  <text x="925.0" y="113.3" class="dg-t" text-anchor="middle" font-size="14">aggression,</text>
+  <text x="925.0" y="130.1" class="dg-t" text-anchor="middle" font-size="14">collisions</text>
+  <path d="M820,60 L856,80" class="dg-ln"/>
+  <text x="990" y="232" class="dg-s" text-anchor="end" font-size="13">(illustrative)</text>
+</svg></figure><!--/FIG-->
   <p class="src">Thompson, <a href="https://gamedeveloper.com/design/how-forza-s-drivatar-actually-works">How Forza's Drivatar actually works</a>, Game Developer, 1 Jun 2021. Xbox Wire, <a href="https://news.xbox.com/en-us/?p=9995">Fear Your Shadow in Killer Instinct</a>, 29 May 2015. Decision-tree learning: Millington and Funge, <a href="https://www.oreilly.com/library/view/artificial-intelligence-for/9780123747310/">Artificial Intelligence for Games</a>, 2nd ed., 2009, ch. 7.</p>
   <aside class="notes" data-min="1">Connect this to decision-tree learning from class. If the proposed character imitates a player’s fighting or movement, a smaller learned policy might be enough. Forza and Killer Instinct demonstrate the design goal. Avoid claiming that either game specifically uses a decision tree unless that implementation is documented.</aside>
 </section>
@@ -406,6 +799,34 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
   <ul class="why">
     <li>An answer already in the cache needs no fresh inference. Only unfamiliar questions reach the model.</li>
   </ul>
+  <!--FIG s-fu-live--><figure class="dg"><svg viewBox="0 0 1000 236" role="img" aria-label="Before release, lines are generated, reviewed and kept in a cache. During play, a player&#x27;s question is looked up: if it is in the cache the stored line is used with no inference; if not, a live model call is made at a cost per reply."><defs><marker id="f-live-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-live-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-live-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <text x="20" y="24" class="dg-h" text-anchor="start" font-size="15">Before release</text>
+  <rect x="20" y="36" width="200" height="56" rx="8" class="dg-box"/>
+  <text x="120.0" y="69.2" class="dg-t" text-anchor="middle" font-size="15">Generate many lines</text>
+  <rect x="270" y="36" width="210" height="56" rx="8" class="dg-box"/>
+  <text x="375.0" y="60.2" class="dg-t" text-anchor="middle" font-size="15">Review, keep the</text>
+  <text x="375.0" y="78.2" class="dg-t" text-anchor="middle" font-size="15">useful ones</text>
+  <path d="M220,64 L266,64" class="dg-ln" marker-end="url(#f-live-ah-mut)"/>
+  <path d="M560,40 a70,12 0 0,0 140,0 v52 a70,12 0 0,1 -140,0 z" class="dg-acc"/><ellipse cx="630" cy="40" rx="70" ry="12" class="dg-acc"/>
+  <text x="630" y="76" class="dg-t" text-anchor="middle" font-size="16">Cache</text>
+  <path d="M480,64 L556,64" class="dg-ln" marker-end="url(#f-live-ah-mut)"/>
+  <text x="20" y="140" class="dg-h" text-anchor="start" font-size="15">During play</text>
+  <rect x="20" y="156" width="200" height="56" rx="8" class="dg-box"/>
+  <text x="120.0" y="189.2" class="dg-t" text-anchor="middle" font-size="15">Player question</text>
+  <path d="M330,150 L400,184 L330,218 L260,184 z" class="dg-box"/>
+  <text x="330" y="189" class="dg-t" text-anchor="middle" font-size="15">In cache?</text>
+  <path d="M220,184 L256,184" class="dg-ln" marker-end="url(#f-live-ah-mut)"/>
+  <path d="M400,184 L560,98" class="dg-ln" marker-end="url(#f-live-ah-mut)"/>
+  <text x="470" y="128" class="dg-s" text-anchor="middle" font-size="13">yes</text>
+  <rect x="740" y="40" width="240" height="56" rx="8" class="dg-ok"/>
+  <text x="860.0" y="73.2" class="dg-t" text-anchor="middle" font-size="15">Stored line, no inference</text>
+  <path d="M700,66 L736,66" class="dg-ln" marker-end="url(#f-live-ah-mut)"/>
+  <path d="M400,196 L736,196" class="dg-ln dg-bad-ln" stroke-dasharray="6 5" marker-end="url(#f-live-ah-bad)"/>
+  <text x="470" y="214" class="dg-s" text-anchor="middle" font-size="13">no</text>
+  <rect x="740" y="168" width="240" height="56" rx="8" class="dg-badbox"/>
+  <text x="860.0" y="192.2" class="dg-t" text-anchor="middle" font-size="15">Live model call:</text>
+  <text x="860.0" y="210.2" class="dg-t" text-anchor="middle" font-size="15">costs every reply</text>
+</svg></figure><!--/FIG-->
   <aside class="notes" data-min="1">Press on any design that wants unlimited live conversation. Which questions will players actually ask? Could the team generate and review replies during development? Use the cache animation again if needed. A live model earns its place when the unexpected questions matter to the game.</aside>
 </section>
 
@@ -413,6 +834,128 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
   <div class="eyebrow"><span class="kind activity">follow-up</span> design review</div>
   <h2>Now ship it to 10,000 players</h2>
   <p class="prompt follow">Where does inference run? Estimate concurrent calls. Set a cost limit, a content check and a fallback for slow or failed requests.</p>
+  <!--FIG s-fu-scale--><figure class="dg"><svg viewBox="0 0 1000 236" role="img" aria-label="Ten thousand players, drawn as 100 dots of 100 players each, become concurrent model calls; each call passes a cost limit and a content check, with a written fallback when a request is slow or fails. Where inference runs, device or server, is the open question."><defs><marker id="f-scale-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-scale-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-scale-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <circle cx="34" cy="30" r="5.5" class="dg-dot"/>
+  <circle cx="51" cy="30" r="5.5" class="dg-dot"/>
+  <circle cx="68" cy="30" r="5.5" class="dg-dot"/>
+  <circle cx="85" cy="30" r="5.5" class="dg-dot"/>
+  <circle cx="102" cy="30" r="5.5" class="dg-dot"/>
+  <circle cx="119" cy="30" r="5.5" class="dg-dot"/>
+  <circle cx="136" cy="30" r="5.5" class="dg-dot"/>
+  <circle cx="153" cy="30" r="5.5" class="dg-dot"/>
+  <circle cx="170" cy="30" r="5.5" class="dg-dot"/>
+  <circle cx="187" cy="30" r="5.5" class="dg-dot"/>
+  <circle cx="34" cy="47" r="5.5" class="dg-dot"/>
+  <circle cx="51" cy="47" r="5.5" class="dg-dot"/>
+  <circle cx="68" cy="47" r="5.5" class="dg-dot"/>
+  <circle cx="85" cy="47" r="5.5" class="dg-dot"/>
+  <circle cx="102" cy="47" r="5.5" class="dg-dot"/>
+  <circle cx="119" cy="47" r="5.5" class="dg-dot"/>
+  <circle cx="136" cy="47" r="5.5" class="dg-dot"/>
+  <circle cx="153" cy="47" r="5.5" class="dg-dot"/>
+  <circle cx="170" cy="47" r="5.5" class="dg-dot"/>
+  <circle cx="187" cy="47" r="5.5" class="dg-dot"/>
+  <circle cx="34" cy="64" r="5.5" class="dg-dot"/>
+  <circle cx="51" cy="64" r="5.5" class="dg-dot"/>
+  <circle cx="68" cy="64" r="5.5" class="dg-dot"/>
+  <circle cx="85" cy="64" r="5.5" class="dg-dot"/>
+  <circle cx="102" cy="64" r="5.5" class="dg-dot"/>
+  <circle cx="119" cy="64" r="5.5" class="dg-dot"/>
+  <circle cx="136" cy="64" r="5.5" class="dg-dot"/>
+  <circle cx="153" cy="64" r="5.5" class="dg-dot"/>
+  <circle cx="170" cy="64" r="5.5" class="dg-dot"/>
+  <circle cx="187" cy="64" r="5.5" class="dg-dot"/>
+  <circle cx="34" cy="81" r="5.5" class="dg-dot"/>
+  <circle cx="51" cy="81" r="5.5" class="dg-dot"/>
+  <circle cx="68" cy="81" r="5.5" class="dg-dot"/>
+  <circle cx="85" cy="81" r="5.5" class="dg-dot"/>
+  <circle cx="102" cy="81" r="5.5" class="dg-dot"/>
+  <circle cx="119" cy="81" r="5.5" class="dg-dot"/>
+  <circle cx="136" cy="81" r="5.5" class="dg-dot"/>
+  <circle cx="153" cy="81" r="5.5" class="dg-dot"/>
+  <circle cx="170" cy="81" r="5.5" class="dg-dot"/>
+  <circle cx="187" cy="81" r="5.5" class="dg-dot"/>
+  <circle cx="34" cy="98" r="5.5" class="dg-dot"/>
+  <circle cx="51" cy="98" r="5.5" class="dg-dot"/>
+  <circle cx="68" cy="98" r="5.5" class="dg-dot"/>
+  <circle cx="85" cy="98" r="5.5" class="dg-dot"/>
+  <circle cx="102" cy="98" r="5.5" class="dg-dot"/>
+  <circle cx="119" cy="98" r="5.5" class="dg-dot"/>
+  <circle cx="136" cy="98" r="5.5" class="dg-dot"/>
+  <circle cx="153" cy="98" r="5.5" class="dg-dot"/>
+  <circle cx="170" cy="98" r="5.5" class="dg-dot"/>
+  <circle cx="187" cy="98" r="5.5" class="dg-dot"/>
+  <circle cx="34" cy="115" r="5.5" class="dg-dot"/>
+  <circle cx="51" cy="115" r="5.5" class="dg-dot"/>
+  <circle cx="68" cy="115" r="5.5" class="dg-dot"/>
+  <circle cx="85" cy="115" r="5.5" class="dg-dot"/>
+  <circle cx="102" cy="115" r="5.5" class="dg-dot"/>
+  <circle cx="119" cy="115" r="5.5" class="dg-dot"/>
+  <circle cx="136" cy="115" r="5.5" class="dg-dot"/>
+  <circle cx="153" cy="115" r="5.5" class="dg-dot"/>
+  <circle cx="170" cy="115" r="5.5" class="dg-dot"/>
+  <circle cx="187" cy="115" r="5.5" class="dg-dot"/>
+  <circle cx="34" cy="132" r="5.5" class="dg-dot"/>
+  <circle cx="51" cy="132" r="5.5" class="dg-dot"/>
+  <circle cx="68" cy="132" r="5.5" class="dg-dot"/>
+  <circle cx="85" cy="132" r="5.5" class="dg-dot"/>
+  <circle cx="102" cy="132" r="5.5" class="dg-dot"/>
+  <circle cx="119" cy="132" r="5.5" class="dg-dot"/>
+  <circle cx="136" cy="132" r="5.5" class="dg-dot"/>
+  <circle cx="153" cy="132" r="5.5" class="dg-dot"/>
+  <circle cx="170" cy="132" r="5.5" class="dg-dot"/>
+  <circle cx="187" cy="132" r="5.5" class="dg-dot"/>
+  <circle cx="34" cy="149" r="5.5" class="dg-dot"/>
+  <circle cx="51" cy="149" r="5.5" class="dg-dot"/>
+  <circle cx="68" cy="149" r="5.5" class="dg-dot"/>
+  <circle cx="85" cy="149" r="5.5" class="dg-dot"/>
+  <circle cx="102" cy="149" r="5.5" class="dg-dot"/>
+  <circle cx="119" cy="149" r="5.5" class="dg-dot"/>
+  <circle cx="136" cy="149" r="5.5" class="dg-dot"/>
+  <circle cx="153" cy="149" r="5.5" class="dg-dot"/>
+  <circle cx="170" cy="149" r="5.5" class="dg-dot"/>
+  <circle cx="187" cy="149" r="5.5" class="dg-dot"/>
+  <circle cx="34" cy="166" r="5.5" class="dg-dot"/>
+  <circle cx="51" cy="166" r="5.5" class="dg-dot"/>
+  <circle cx="68" cy="166" r="5.5" class="dg-dot"/>
+  <circle cx="85" cy="166" r="5.5" class="dg-dot"/>
+  <circle cx="102" cy="166" r="5.5" class="dg-dot"/>
+  <circle cx="119" cy="166" r="5.5" class="dg-dot"/>
+  <circle cx="136" cy="166" r="5.5" class="dg-dot"/>
+  <circle cx="153" cy="166" r="5.5" class="dg-dot"/>
+  <circle cx="170" cy="166" r="5.5" class="dg-dot"/>
+  <circle cx="187" cy="166" r="5.5" class="dg-dot"/>
+  <circle cx="34" cy="183" r="5.5" class="dg-dot"/>
+  <circle cx="51" cy="183" r="5.5" class="dg-dot"/>
+  <circle cx="68" cy="183" r="5.5" class="dg-dot"/>
+  <circle cx="85" cy="183" r="5.5" class="dg-dot"/>
+  <circle cx="102" cy="183" r="5.5" class="dg-dot"/>
+  <circle cx="119" cy="183" r="5.5" class="dg-dot"/>
+  <circle cx="136" cy="183" r="5.5" class="dg-dot"/>
+  <circle cx="153" cy="183" r="5.5" class="dg-dot"/>
+  <circle cx="170" cy="183" r="5.5" class="dg-dot"/>
+  <circle cx="187" cy="183" r="5.5" class="dg-dot"/>
+  <text x="110" y="210" class="dg-t" text-anchor="middle" font-size="15">10,000 players</text>
+  <text x="110" y="228" class="dg-s" text-anchor="middle" font-size="13">one dot = 100</text>
+  <path d="M204,106 L236,106" class="dg-ln" marker-end="url(#f-scale-ah-mut)"/>
+  <rect x="240" y="72" width="170" height="68" rx="8" class="dg-blank"/>
+  <text x="325.0" y="102.2" class="dg-t" text-anchor="middle" font-size="15">Concurrent</text>
+  <text x="325.0" y="120.2" class="dg-t" text-anchor="middle" font-size="15">calls: how many?</text>
+  <rect x="440" y="72" width="160" height="68" rx="8" class="dg-blank"/>
+  <text x="520.0" y="102.2" class="dg-t" text-anchor="middle" font-size="15">Device or</text>
+  <text x="520.0" y="120.2" class="dg-t" text-anchor="middle" font-size="15">server?</text>
+  <rect x="630" y="72" width="130" height="68" rx="8" class="dg-box"/>
+  <text x="695.0" y="111.2" class="dg-t" text-anchor="middle" font-size="15">Cost limit</text>
+  <rect x="790" y="72" width="180" height="68" rx="8" class="dg-box"/>
+  <text x="880.0" y="111.2" class="dg-t" text-anchor="middle" font-size="15">Content check</text>
+  <path d="M410,106 L436,106" class="dg-ln" marker-end="url(#f-scale-ah-mut)"/>
+  <path d="M600,106 L626,106" class="dg-ln" marker-end="url(#f-scale-ah-mut)"/>
+  <path d="M760,106 L786,106" class="dg-ln" marker-end="url(#f-scale-ah-mut)"/>
+  <rect x="560" y="176" width="250" height="46" rx="8" class="dg-box"/>
+  <text x="685.0" y="204.2" class="dg-t" text-anchor="middle" font-size="15">Written fallback line</text>
+  <path d="M520,140 L600,172" class="dg-ln dg-bad-ln" stroke-dasharray="6 5" marker-end="url(#f-scale-ah-bad)"/>
+  <text x="540" y="168" class="dg-s" text-anchor="end" font-size="13">slow or failed</text>
+</svg></figure><!--/FIG-->
   <aside class="notes" data-min="1">Make the group name the hardware or service. Cul-de-sac has no per-player server budget, so they must choose local inference or offline generation. For Night Shift, latency during a guard encounter is especially hard to justify. Ask what the player sees when the model does not respond.</aside>
 </section>
 
@@ -487,6 +1030,41 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <div><h4>MIMIC, 2025</h4><p>Seven player profiles improved coverage. Each action averaged about $0.05 and 12.4 seconds.</p></div>
     <div><h4>GBQA, 2026</h4><p>Across 30 games, the strongest model found 48.39% of 124 verified bugs.</p></div>
   </div>
+  <!--FIG s-play-intro--><figure class="dg"><svg viewBox="0 0 1000 214" role="img" aria-label="A timeline of automated playtesting: 2014 Holmgård&#x27;s procedural personas; 2020 EA SEED&#x27;s reinforcement-learning agents; 2025 TITAN, 95% of tasks in two MMORPGs; 2025 MIMIC, seven player profiles; 2026 GBQA, where the strongest model found 48.39% of 124 bugs."><defs><marker id="f-playtl-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-playtl-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-playtl-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <path d="M30,170 L970,170" class="dg-ln" marker-end="url(#f-playtl-ah-mut)"/>
+  <text x="60" y="196" class="dg-s" text-anchor="middle" font-size="13">2014</text>
+  <text x="204" y="196" class="dg-s" text-anchor="middle" font-size="13">2016</text>
+  <text x="348" y="196" class="dg-s" text-anchor="middle" font-size="13">2018</text>
+  <text x="492" y="196" class="dg-s" text-anchor="middle" font-size="13">2020</text>
+  <text x="636" y="196" class="dg-s" text-anchor="middle" font-size="13">2022</text>
+  <text x="780" y="196" class="dg-s" text-anchor="middle" font-size="13">2024</text>
+  <text x="924" y="196" class="dg-s" text-anchor="middle" font-size="13">2026</text>
+  <rect x="13" y="14" width="184" height="66" rx="8" class="dg-box"/>
+  <text x="105.0" y="43.2" class="dg-t" text-anchor="middle" font-size="15">2014 Holmgård</text>
+  <text x="105.0" y="61.2" class="dg-t" text-anchor="middle" font-size="15">procedural personas</text>
+  <path d="M105,80 L60,162" class="dg-ln"/>
+  <circle cx="60" cy="170" r="7" class="dg-att"/>
+  <rect x="210" y="14" width="184" height="66" rx="8" class="dg-box"/>
+  <text x="302.0" y="43.2" class="dg-t" text-anchor="middle" font-size="15">2020 EA SEED</text>
+  <text x="302.0" y="61.2" class="dg-t" text-anchor="middle" font-size="15">RL agents find bugs</text>
+  <path d="M302,80 L492,162" class="dg-ln"/>
+  <circle cx="492" cy="170" r="7" class="dg-att"/>
+  <rect x="407" y="14" width="184" height="66" rx="8" class="dg-box"/>
+  <text x="499.0" y="43.2" class="dg-t" text-anchor="middle" font-size="15">2025 TITAN</text>
+  <text x="499.0" y="61.2" class="dg-t" text-anchor="middle" font-size="15">95% of tasks</text>
+  <path d="M499,80 L852,162" class="dg-ln"/>
+  <circle cx="852" cy="170" r="7" class="dg-att"/>
+  <rect x="604" y="14" width="184" height="66" rx="8" class="dg-box"/>
+  <text x="696.0" y="43.2" class="dg-t" text-anchor="middle" font-size="15">2025 MIMIC</text>
+  <text x="696.0" y="61.2" class="dg-t" text-anchor="middle" font-size="15">7 player profiles</text>
+  <path d="M696,80 L852,162" class="dg-ln"/>
+  <circle cx="852" cy="170" r="7" class="dg-att"/>
+  <rect x="801" y="14" width="184" height="66" rx="8" class="dg-acc"/>
+  <text x="893.0" y="43.2" class="dg-t" text-anchor="middle" font-size="15">2026 GBQA</text>
+  <text x="893.0" y="61.2" class="dg-t" text-anchor="middle" font-size="15">48.39% of 124 bugs</text>
+  <path d="M893,80 L924,162" class="dg-ln"/>
+  <circle cx="924" cy="170" r="7" class="dg-att"/>
+</svg></figure><!--/FIG-->
   <p class="src">Holmgård et al., <a href="https://pure.itu.dk/en/publications/generative-agents-for-player-decision-modeling-in-games/">Generative Agents for Player Decision Modeling in Games</a>, FDG 2014. Bergdahl et al., <a href="https://arxiv.org/abs/2103.15819">Augmenting Automated Game Testing with Deep Reinforcement Learning</a>, CoG 2020. Wang et al., <a href="https://arxiv.org/abs/2509.22170">TITAN</a>, 2025. Chen et al., <a href="https://arxiv.org/abs/2510.01635">MIMIC</a>, ASE 2025. Jiang et al., <a href="https://arxiv.org/abs/2604.02648">GBQA</a>, 2026.</p>
   <aside class="notes" data-min="1.5">Here the model is useful for a different reason. A testing agent can try unusual routes through a game, and a strange choice may reveal a defect. The research is promising but imperfect: TITAN reported false positives, and GBQA did not recover every bug. I have not found direct evidence that randomness alone improves bug yield, so I present that as an observation from my own work.</aside>
 </section>
@@ -515,6 +1093,37 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
       <li>30 agent runs consumed 4.46 million tokens; median 140,000 per agent.</li>
       <li>Agent reports can point to defects. I still need human players to study difficulty, enjoyment and usability.</li></ul></div>
   </div>
+  <!--FIG s-play-recipe--><figure class="dg"><svg viewBox="0 0 1000 214" role="img" aria-label="My playtest setup: a play style and the player manual go to the agent, which plays the game build through a harness and writes a report that separates observations from guesses; I reproduce each bug and add a regression test."><defs><marker id="f-recipe-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-recipe-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-recipe-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="20" y="70" width="130" height="64" rx="8" class="dg-acc"/>
+  <text x="85.0" y="98.2" class="dg-t" text-anchor="middle" font-size="15">Agent with a</text>
+  <text x="85.0" y="116.2" class="dg-t" text-anchor="middle" font-size="15">play style</text>
+  <rect x="186" y="70" width="130" height="64" rx="8" class="dg-box"/>
+  <text x="251.0" y="98.2" class="dg-t" text-anchor="middle" font-size="15">Harness: text</text>
+  <text x="251.0" y="116.2" class="dg-t" text-anchor="middle" font-size="15">or browser</text>
+  <rect x="352" y="70" width="130" height="64" rx="8" class="dg-box"/>
+  <text x="417.0" y="107.2" class="dg-t" text-anchor="middle" font-size="15">Game build</text>
+  <rect x="518" y="70" width="130" height="64" rx="8" class="dg-box"/>
+  <text x="583.0" y="98.2" class="dg-t" text-anchor="middle" font-size="15">Report: seen</text>
+  <text x="583.0" y="116.2" class="dg-t" text-anchor="middle" font-size="15">vs guessed</text>
+  <rect x="684" y="70" width="130" height="64" rx="8" class="dg-box"/>
+  <text x="749.0" y="98.2" class="dg-t" text-anchor="middle" font-size="15">I reproduce</text>
+  <text x="749.0" y="116.2" class="dg-t" text-anchor="middle" font-size="15">the bug</text>
+  <rect x="850" y="70" width="130" height="64" rx="8" class="dg-box"/>
+  <text x="915.0" y="98.2" class="dg-t" text-anchor="middle" font-size="15">Regression</text>
+  <text x="915.0" y="116.2" class="dg-t" text-anchor="middle" font-size="15">test</text>
+  <path d="M150,102 L182,102" class="dg-ln" marker-end="url(#f-recipe-ah-mut)"/>
+  <path d="M316,102 L348,102" class="dg-ln" marker-end="url(#f-recipe-ah-mut)"/>
+  <path d="M482,102 L514,102" class="dg-ln" marker-end="url(#f-recipe-ah-mut)"/>
+  <path d="M648,102 L680,102" class="dg-ln" marker-end="url(#f-recipe-ah-mut)"/>
+  <path d="M814,102 L846,102" class="dg-ln" marker-end="url(#f-recipe-ah-mut)"/>
+  <rect x="20" y="4" width="130" height="40" rx="8" class="dg-box"/>
+  <text x="85.0" y="28.9" class="dg-t" text-anchor="middle" font-size="14">Player manual</text>
+  <path d="M85,44 L85,66" class="dg-ln" marker-end="url(#f-recipe-ah-mut)"/>
+  <rect x="186" y="4" width="296" height="40" rx="8" class="dg-badbox"/>
+  <text x="334.0" y="28.9" class="dg-t" text-anchor="middle" font-size="14">✗ source code, balance values</text>
+  <path d="M334,44 L334,66" class="dg-ln dg-bad-ln" stroke-dasharray="6 5"/>
+  <text x="500" y="176" class="dg-s" text-anchor="middle" font-size="14">30 agent runs · 4.46 million tokens · median 140,000 per agent</text>
+</svg></figure><!--/FIG-->
   <p class="src"><a href="https://github.com/sgilson7/builder-setting">Agents as Playtesters</a>, compiled 2026-11-11 from my Claude Code sessions (2026-10-10 to 2026-11-08) and the projects' playtest notes. A classroom app in the survey is counted but not described.</p>
   <aside class="notes" data-min="1.5">This is my working setup from the Builder projects. The important thing is to let the agent play from the player’s point of view. Different personas help it choose different actions. Every finding needs reproduction. And an agent is not a human research participant: I use these tests for software defects, then ask people what the game feels like.</aside>
 </section>
@@ -529,6 +1138,31 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <li>Use behaviour trees or learned policies when you need fast, repeatable decisions.</li>
     <li>For testing, try agents with different play styles. Reproduce their bug reports before making changes.</li>
   </ul>
+  <!--FIG s-close--><figure class="dg"><svg viewBox="0 0 1000 176" role="img" aria-label="From the smallest system to the largest: behaviour tree, learned policy, model output generated before launch, live model call with firm limits. The left end is fast and repeatable; the right end gives varied dialogue and planning at a cost per reply."><defs><marker id="f-close-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-close-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-close-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <path d="M30,120 L970,120" class="dg-ln dg-acc-ln" marker-end="url(#f-close-ah-acc)"/>
+  <circle cx="130" cy="120" r="9" class="dg-att"/>
+  <rect x="30" y="30" width="200" height="64" rx="8" class="dg-acc"/>
+  <text x="130.0" y="58.2" class="dg-t" text-anchor="middle" font-size="15">Behaviour</text>
+  <text x="130.0" y="76.2" class="dg-t" text-anchor="middle" font-size="15">tree</text>
+  <path d="M130,94 L130,110" class="dg-ln"/>
+  <circle cx="360" cy="120" r="9" class="dg-att"/>
+  <rect x="260" y="30" width="200" height="64" rx="8" class="dg-box"/>
+  <text x="360.0" y="58.2" class="dg-t" text-anchor="middle" font-size="15">Learned</text>
+  <text x="360.0" y="76.2" class="dg-t" text-anchor="middle" font-size="15">policy</text>
+  <path d="M360,94 L360,110" class="dg-ln"/>
+  <circle cx="610" cy="120" r="9" class="dg-att"/>
+  <rect x="510" y="30" width="200" height="64" rx="8" class="dg-box"/>
+  <text x="610.0" y="58.2" class="dg-t" text-anchor="middle" font-size="15">Model output made</text>
+  <text x="610.0" y="76.2" class="dg-t" text-anchor="middle" font-size="15">before launch</text>
+  <path d="M610,94 L610,110" class="dg-ln"/>
+  <circle cx="860" cy="120" r="9" class="dg-att"/>
+  <rect x="760" y="30" width="200" height="64" rx="8" class="dg-box"/>
+  <text x="860.0" y="58.2" class="dg-t" text-anchor="middle" font-size="15">Live model call,</text>
+  <text x="860.0" y="76.2" class="dg-t" text-anchor="middle" font-size="15">firm limits</text>
+  <path d="M860,94 L860,110" class="dg-ln"/>
+  <text x="30" y="156" class="dg-t" text-anchor="start" font-size="15">fast, repeatable, cheap</text>
+  <text x="970" y="156" class="dg-t" text-anchor="end" font-size="15">varied dialogue and planning, a cost per reply</text>
+</svg></figure><!--/FIG-->
   <aside class="notes" data-min="1">End on the design choice. Pick the smallest system that produces the experience you want. You can still use a language model during development, even when none runs in the finished game. Ask the class where they would spend their own compute budget. Then take questions.</aside>
 </section>
 
