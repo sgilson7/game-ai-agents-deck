@@ -1061,46 +1061,68 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
     <div><h3>The old lady</h3><ul><li>Her persona believes her daughter is missing. The game passes the agent what the player says through Talk.</li><li>Talk to her the right way and the agent decides to create a quest through the harness: find the daughter, who she is convinced is dead in a cave. Reporting the corpse completes it.</li><li>Describe the daughter’s features wrongly later and the agent may decide she is alive, and create a new quest.</li></ul></div>
     <div><h3>The nobleman</h3><ul><li>The game tells the agent the player sprinted into him.</li><li>The agent decides a nobleman would be dishonoured enough to challenge whoever did that to a duel, and writes his challenge.</li><li>At that moment it writes the follow-up quests through the harness. Kill him and you are thrown out of town and set to wanted there; let him flee and you gain honour for silencing a bully; refuse and it opens a bounty on you.</li></ul></div>
   </div>
-  <!--FIG s-dream-play--><figure class="dg"><svg viewBox="0 0 1000 300" role="img" aria-label="The nobleman encounter: the game event, the player sprinting into him, goes to the agent, guided by his persona and behaviour tree, which decides a dishonoured noble challenges the player to a duel. At that moment it calls the harness to say the challenge, create a quest if he dies (wanted in town), create a quest if he flees (honour in town) and, if refused, open a bounty. Interactions and quest lines from each player&#x27;s single-player instance are cached on a server; after about a month they train a learned decision tree per NPC, which ships with no generative model."><defs><marker id="f-dream-play-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-dream-play-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-dream-play-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
-  <rect x="10" y="10" width="180" height="60" rx="8" class="dg-box"/>
-  <text x="100.0" y="36.5" class="dg-t" text-anchor="middle" font-size="14">Game event: player</text>
-  <text x="100.0" y="53.3" class="dg-t" text-anchor="middle" font-size="14">sprints into him</text>
-  <rect x="10" y="110" width="180" height="80" rx="8" class="dg-acc"/>
-  <text x="100.0" y="138.1" class="dg-t" text-anchor="middle" font-size="14">Agent decides: a</text>
-  <text x="100.0" y="154.9" class="dg-t" text-anchor="middle" font-size="14">dishonoured noble</text>
-  <text x="100.0" y="171.7" class="dg-t" text-anchor="middle" font-size="14">challenges a duel</text>
-  <rect x="10" y="230" width="180" height="56" rx="8" class="dg-mark"/>
-  <text x="100.0" y="254.5" class="dg-t" text-anchor="middle" font-size="14">Persona and</text>
-  <text x="100.0" y="271.3" class="dg-t" text-anchor="middle" font-size="14">behaviour tree</text>
-  <path d="M100,70 L100,106" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <path d="M100,230 L100,194" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <rect x="236" y="4" width="356" height="292" rx="10" class="dg-frame"/>
-  <text x="252" y="30" class="dg-h" text-anchor="start" font-size="15">Harness calls, written at that moment</text>
-  <rect x="252" y="48" width="324" height="46" rx="8" class="dg-box"/>
-  <text x="414.0" y="75.9" class="dg-t" text-anchor="middle" font-size="14">Say: the duel challenge</text>
-  <rect x="252" y="108" width="324" height="46" rx="8" class="dg-badbox"/>
-  <text x="414.0" y="135.9" class="dg-t" text-anchor="middle" font-size="14">Quest if he dies: wanted in town</text>
-  <rect x="252" y="168" width="324" height="46" rx="8" class="dg-ok"/>
-  <text x="414.0" y="195.9" class="dg-t" text-anchor="middle" font-size="14">Quest if he flees: honour in town</text>
-  <rect x="252" y="228" width="324" height="46" rx="8" class="dg-badbox"/>
-  <text x="414.0" y="255.9" class="dg-t" text-anchor="middle" font-size="14">If refused: open a bounty</text>
-  <path d="M190,150 L232,150" class="dg-ln dg-acc-ln" marker-end="url(#f-dream-play-ah-acc)"/>
-  <rect x="616" y="0" width="1" height="300" class="dg-none"/>
-  <rect x="650" y="8" width="330" height="60" rx="8" class="dg-box"/>
-  <text x="815.0" y="34.5" class="dg-t" text-anchor="middle" font-size="14">Cached on a server from each</text>
-  <text x="815.0" y="51.3" class="dg-t" text-anchor="middle" font-size="14">player’s single-player instance</text>
-  <rect x="650" y="118" width="330" height="60" rx="8" class="dg-acc"/>
-  <text x="815.0" y="144.5" class="dg-t" text-anchor="middle" font-size="14">Train a learned decision</text>
-  <text x="815.0" y="161.3" class="dg-t" text-anchor="middle" font-size="14">tree for each NPC</text>
-  <rect x="650" y="228" width="330" height="60" rx="8" class="dg-ok"/>
-  <text x="815.0" y="254.5" class="dg-t" text-anchor="middle" font-size="14">Ship the trees: small, fixed,</text>
-  <text x="815.0" y="271.3" class="dg-t" text-anchor="middle" font-size="14">no generative model</text>
-  <path d="M815,68 L815,114" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <path d="M815,178 L815,224" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <text x="827" y="98" class="dg-s" text-anchor="start" font-size="13">after about a month of play</text>
-  <path d="M592,60 L646,40" class="dg-ln dg-acc-ln" marker-end="url(#f-dream-play-ah-acc)"/>
+  <!--FIG s-dream-play--><figure class="dg"><svg viewBox="0 0 1000 360" role="img" aria-label="Two encounters. The old lady: the player speaks to her through Talk; the agent, guided by her persona and behaviour tree, decides she thinks her daughter is dead in a cave and calls the harness to say her plea, create a quest to find the daughter, complete it when the corpse is reported, and, if the player describes the daughter&#x27;s features wrongly, create a new quest because she is alive. The nobleman: the game event of the player sprinting into him goes to the agent, which decides a dishonoured noble challenges a duel and calls the harness to say the challenge, create a quest if he dies (wanted in town), a quest if he flees (honour in town) and, if refused, open a bounty. Both are cached on a server from each player&#x27;s single-player instance; after about a month they train a learned decision tree per NPC, which ships with no generative model."><defs><marker id="f-dream-play-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-dream-play-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-dream-play-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="0" y="10" width="160" height="60" rx="8" class="dg-box"/>
+  <text x="80.0" y="36.5" class="dg-t" text-anchor="middle" font-size="14">Talk: the player</text>
+  <text x="80.0" y="53.3" class="dg-t" text-anchor="middle" font-size="14">speaks to her</text>
+  <rect x="0" y="100" width="160" height="84" rx="8" class="dg-acc"/>
+  <text x="80.0" y="130.1" class="dg-t" text-anchor="middle" font-size="14">Agent decides: she</text>
+  <text x="80.0" y="146.9" class="dg-t" text-anchor="middle" font-size="14">believes her girl</text>
+  <text x="80.0" y="163.7" class="dg-t" text-anchor="middle" font-size="14">is dead in a cave</text>
+  <rect x="0" y="214" width="160" height="56" rx="8" class="dg-mark"/>
+  <text x="80.0" y="238.5" class="dg-t" text-anchor="middle" font-size="14">Persona and</text>
+  <text x="80.0" y="255.3" class="dg-t" text-anchor="middle" font-size="14">behaviour tree</text>
+  <path d="M80,70 L80,96" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
+  <path d="M80,214 L80,188" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
+  <rect x="190" y="4" width="296" height="270" rx="10" class="dg-frame"/>
+  <text x="204" y="28" class="dg-h" text-anchor="start" font-size="15">Harness calls, at that moment</text>
+  <rect x="204" y="44" width="268" height="44" rx="8" class="dg-box"/>
+  <text x="338.0" y="70.5" class="dg-t" text-anchor="middle" font-size="13">Say: her plea for help</text>
+  <rect x="204" y="100" width="268" height="44" rx="8" class="dg-box"/>
+  <text x="338.0" y="126.5" class="dg-t" text-anchor="middle" font-size="13">Quest: find her daughter (cave)</text>
+  <rect x="204" y="156" width="268" height="44" rx="8" class="dg-ok"/>
+  <text x="338.0" y="182.6" class="dg-t" text-anchor="middle" font-size="13">Report the corpse: quest done</text>
+  <rect x="204" y="212" width="268" height="44" rx="8" class="dg-box"/>
+  <text x="338.0" y="238.6" class="dg-t" text-anchor="middle" font-size="13">Wrong features: new quest, alive</text>
+  <path d="M160,142 L186,142" class="dg-ln dg-acc-ln" marker-end="url(#f-dream-play-ah-acc)"/>
+  <rect x="510" y="10" width="160" height="60" rx="8" class="dg-box"/>
+  <text x="590.0" y="36.5" class="dg-t" text-anchor="middle" font-size="14">Game event: player</text>
+  <text x="590.0" y="53.3" class="dg-t" text-anchor="middle" font-size="14">sprints into him</text>
+  <rect x="510" y="100" width="160" height="84" rx="8" class="dg-acc"/>
+  <text x="590.0" y="130.1" class="dg-t" text-anchor="middle" font-size="14">Agent decides: a</text>
+  <text x="590.0" y="146.9" class="dg-t" text-anchor="middle" font-size="14">dishonoured noble</text>
+  <text x="590.0" y="163.7" class="dg-t" text-anchor="middle" font-size="14">challenges a duel</text>
+  <rect x="510" y="214" width="160" height="56" rx="8" class="dg-mark"/>
+  <text x="590.0" y="238.5" class="dg-t" text-anchor="middle" font-size="14">Persona and</text>
+  <text x="590.0" y="255.3" class="dg-t" text-anchor="middle" font-size="14">behaviour tree</text>
+  <path d="M590,70 L590,96" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
+  <path d="M590,214 L590,188" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
+  <rect x="700" y="4" width="296" height="270" rx="10" class="dg-frame"/>
+  <text x="714" y="28" class="dg-h" text-anchor="start" font-size="15">Harness calls, at that moment</text>
+  <rect x="714" y="44" width="268" height="44" rx="8" class="dg-box"/>
+  <text x="848.0" y="70.5" class="dg-t" text-anchor="middle" font-size="13">Say: the duel challenge</text>
+  <rect x="714" y="100" width="268" height="44" rx="8" class="dg-badbox"/>
+  <text x="848.0" y="126.5" class="dg-t" text-anchor="middle" font-size="13">Quest if he dies: wanted in town</text>
+  <rect x="714" y="156" width="268" height="44" rx="8" class="dg-ok"/>
+  <text x="848.0" y="182.6" class="dg-t" text-anchor="middle" font-size="13">Quest if he flees: honour in town</text>
+  <rect x="714" y="212" width="268" height="44" rx="8" class="dg-badbox"/>
+  <text x="848.0" y="238.6" class="dg-t" text-anchor="middle" font-size="13">If refused: open a bounty</text>
+  <path d="M670,142 L696,142" class="dg-ln dg-acc-ln" marker-end="url(#f-dream-play-ah-acc)"/>
+  <path d="M338,274 L338,286" class="dg-ln"/>
+  <path d="M848,274 L848,286 L150,286 L150,296" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
+  <rect x="0" y="300" width="300" height="56" rx="8" class="dg-box"/>
+  <text x="150.0" y="324.5" class="dg-t" text-anchor="middle" font-size="14">Cached on a server from each</text>
+  <text x="150.0" y="341.3" class="dg-t" text-anchor="middle" font-size="14">player’s single-player instance</text>
+  <rect x="350" y="300" width="300" height="56" rx="8" class="dg-acc"/>
+  <text x="500.0" y="324.5" class="dg-t" text-anchor="middle" font-size="14">After about a month, train a</text>
+  <text x="500.0" y="341.3" class="dg-t" text-anchor="middle" font-size="14">learned decision tree per NPC</text>
+  <rect x="700" y="300" width="300" height="56" rx="8" class="dg-ok"/>
+  <text x="850.0" y="324.5" class="dg-t" text-anchor="middle" font-size="14">Ship the trees: small, fixed,</text>
+  <text x="850.0" y="341.3" class="dg-t" text-anchor="middle" font-size="14">no generative model</text>
+  <path d="M300,328 L346,328" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
+  <path d="M650,328 L696,328" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
 </svg></figure><!--/FIG-->
-  <aside class="notes" data-min="1">This is where the emergent gameplay comes from. No designer wrote these encounters. The game sends the agent what is happening, such as the player sprinting into the nobleman. The agent decides, from his persona and behaviour tree, that a nobleman would be dishonoured enough to challenge that player to a duel. It writes his challenge, and at that moment it uses the harness to write the follow-up quests for each way the duel can end. In the background, a system built on decision trees caches the interactions and quest lines each player creates in their own single-player instance and saves them to a server. After the agent mode has run for about a month and there is enough data, every agent is converted into a learned decision tree trained on what players induced during the playtest. The game gets the model’s spontaneity for emergent world design, then ships fixed, small models that are not generative, to save cost. Connect this to decision-tree learning from class.</aside>
+  <aside class="notes" data-min="1">This is where the emergent gameplay comes from. No designer wrote these encounters. The game sends the agent what is happening, such as the player sprinting into the nobleman. The agent decides, from his persona and behaviour tree, that a nobleman would be dishonoured enough to challenge that player to a duel. It writes his challenge, and at that moment it uses the harness to write the follow-up quests for each way the duel can end. The old lady works the same way: what the player says through Talk reaches her agent, and it decides when to create the cave quest, and later whether a wrong description means her daughter is alive. In the background, a system built on decision trees caches the interactions and quest lines each player creates in their own single-player instance and saves them to a server. After the agent mode has run for about a month and there is enough data, every agent is converted into a learned decision tree trained on what players induced during the playtest. The game gets the model’s spontaneity for emergent world design, then ships fixed, small models that are not generative, to save cost. Connect this to decision-tree learning from class.</aside>
 </section>
 
 <!-- playtesting -->
