@@ -1007,16 +1007,19 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
   <h2>With unlimited resources: an agent behind every NPC</h2>
   <div class="cols">
     <div><h3>What the player can do</h3><ul><li>Pick a preset option for ordinary dialogue and game actions, such as opening the shop.</li><li>Use a Talk command to say anything to the NPC.</li></ul></div>
-    <div><h3>What guides the agent</h3><ul><li>Every NPC is a generative AI agent running in a harness.</li><li>Each NPC has a persona.</li><li>A behaviour tree guides what the agent outputs.</li></ul></div>
+    <div><h3>What guides the agent</h3><ul><li>Every NPC is a generative AI agent running in a harness.</li><li>The harness passes the agent the game state, such as what the player just did.</li><li>Each NPC has a persona.</li><li>A behaviour tree guides what the agent outputs.</li></ul></div>
     <div><h3>What the harness lets it do</h3><ul><li>Create a new quest, and a new item as its reward.</li><li>Add new items to a shop.</li><li>Grant the player an ability, curse the player, or open a bounty on them.</li></ul></div>
   </div>
-  <!--FIG s-dream--><figure class="dg"><svg viewBox="0 0 1000 262" role="img" aria-label="Player input, either a preset option such as opening the shop or free text through Talk, goes to a generative AI agent guided by the NPC&#x27;s persona and a behaviour tree, all inside a harness; the harness lets the agent create a quest, create a reward item, stock a shop, grant an ability, curse the player or open a bounty."><defs><marker id="f-dream-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-dream-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-dream-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
-  <rect x="20" y="40" width="180" height="70" rx="8" class="dg-box"/>
-  <text x="110.0" y="71.2" class="dg-t" text-anchor="middle" font-size="15">Preset options</text>
-  <text x="110.0" y="89.2" class="dg-t" text-anchor="middle" font-size="15">shop, dialogue</text>
-  <rect x="20" y="150" width="180" height="70" rx="8" class="dg-acc"/>
-  <text x="110.0" y="181.2" class="dg-t" text-anchor="middle" font-size="15">Talk</text>
-  <text x="110.0" y="199.2" class="dg-t" text-anchor="middle" font-size="15">say anything</text>
+  <!--FIG s-dream--><figure class="dg"><svg viewBox="0 0 1000 262" role="img" aria-label="Three inputs reach a generative AI agent through the harness: the game state, a preset option such as opening the shop, and free text through Talk. The agent is guided by the NPC&#x27;s persona and a behaviour tree, and the harness lets it create a quest, create a reward item, stock a shop, grant an ability, curse the player or open a bounty."><defs><marker id="f-dream-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-dream-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-dream-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="20" y="14" width="180" height="62" rx="8" class="dg-mark"/>
+  <text x="110.0" y="41.2" class="dg-t" text-anchor="middle" font-size="15">Game state</text>
+  <text x="110.0" y="59.2" class="dg-t" text-anchor="middle" font-size="15">what just happened</text>
+  <rect x="20" y="100" width="180" height="62" rx="8" class="dg-box"/>
+  <text x="110.0" y="127.2" class="dg-t" text-anchor="middle" font-size="15">Preset options</text>
+  <text x="110.0" y="145.2" class="dg-t" text-anchor="middle" font-size="15">shop, dialogue</text>
+  <rect x="20" y="186" width="180" height="62" rx="8" class="dg-acc"/>
+  <text x="110.0" y="213.2" class="dg-t" text-anchor="middle" font-size="15">Talk</text>
+  <text x="110.0" y="231.2" class="dg-t" text-anchor="middle" font-size="15">say anything</text>
   <rect x="250" y="6" width="330" height="250" rx="10" class="dg-frame"/>
   <text x="266" y="30" class="dg-h" text-anchor="start" font-size="15">Harness</text>
   <rect x="270" y="48" width="140" height="56" rx="8" class="dg-box"/>
@@ -1029,8 +1032,9 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
   <path d="M340,104 L390,164" class="dg-ln" marker-end="url(#f-dream-ah-mut)"/>
   <path d="M494,104 L460,164" class="dg-ln" marker-end="url(#f-dream-ah-mut)"/>
   <text x="425" y="142" class="dg-s" text-anchor="middle" font-size="13">guide</text>
-  <path d="M200,75 L326,186" class="dg-ln" marker-end="url(#f-dream-ah-mut)"/>
-  <path d="M200,185 L326,200" class="dg-ln" marker-end="url(#f-dream-ah-mut)"/>
+  <path d="M200,45 L326,178" class="dg-ln" marker-end="url(#f-dream-ah-mut)"/>
+  <path d="M200,131 L326,192" class="dg-ln" marker-end="url(#f-dream-ah-mut)"/>
+  <path d="M200,217 L326,210" class="dg-ln" marker-end="url(#f-dream-ah-mut)"/>
   <rect x="630" y="6" width="360" height="250" rx="10" class="dg-none"/>
   <text x="646" y="30" class="dg-h" text-anchor="start" font-size="15">Actions the agent can take</text>
   <rect x="646" y="48" width="156" height="54" rx="8" class="dg-box"/>
@@ -1047,50 +1051,41 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
   <text x="896.0" y="220.2" class="dg-t" text-anchor="middle" font-size="15">Open bounty</text>
   <path d="M520,200 L626,200" class="dg-ln dg-acc-ln" marker-end="url(#f-dream-ah-acc)"/>
 </svg></figure><!--/FIG-->
-  <aside class="notes" data-min="1">If I were a game designer at a company the size of Blizzard, with unlimited resources, this is what I would try. Every NPC is a generative AI agent in a harness. Players still get preset options for ordinary dialogue and actions like opening the shop, and a Talk command lets them speak to the NPC in their own words. The persona and the behaviour tree guide what the agent outputs. The harness gives the agent actions that change the world: new quests, new reward items, shop stock, abilities, curses and bounties.</aside>
+  <aside class="notes" data-min="1">If I were a game designer at a company the size of Blizzard, with unlimited resources, this is what I would try. Every NPC is a generative AI agent in a harness. Players still get preset options for ordinary dialogue and actions like opening the shop, and a Talk command lets them speak to the NPC in their own words. The harness passes the agent the game state, so it knows what just happened around the NPC. The persona and the behaviour tree guide what the agent outputs. The harness gives the agent actions that change the world: new quests, new reward items, shop stock, abilities, curses and bounties.</aside>
 </section>
 
-<section id="s-dream-play" data-title="Emergent quests, then trees">
-  <div class="eyebrow"><span class="kind speculative">my proposal</span> two sample encounters</div>
-  <h2>Let players create quests, then distil them into decision trees</h2>
+<section id="s-dream-play" data-title="Emergent quests via the harness">
+  <div class="eyebrow"><span class="kind speculative">my proposal</span> emergent gameplay through the harness</div>
+  <h2>The agent decides what happens and writes the quests through the harness</h2>
   <div class="cols">
-    <div><h3>The old lady</h3><ul><li>Her persona believes her daughter is missing.</li><li>Talk to her the right way and the agent creates a quest to find the daughter, who she is convinced is dead in a cave. You find a corpse there; reporting back completes the quest.</li><li>Keep talking and she may ask about her daughter’s features. Describe them wrongly and she may become convinced her daughter is alive, and create a new quest.</li></ul></div>
-    <div><h3>The nobleman</h3><ul><li>You sprint into him, and he challenges you to a duel for your honour.</li><li>Refuse and he puts a bounty on you.</li><li>Accept and the agent creates two quests, one for each outcome. Kill him and you are thrown out of town, and the harness sets you to wanted there. Let him flee and you gain honour in the town for silencing a bully.</li></ul></div>
+    <div><h3>The old lady</h3><ul><li>Her persona believes her daughter is missing. The game passes the agent what the player says through Talk.</li><li>Talk to her the right way and the agent decides to create a quest through the harness: find the daughter, who she is convinced is dead in a cave. Reporting the corpse completes it.</li><li>Describe the daughter’s features wrongly later and the agent may decide she is alive, and create a new quest.</li></ul></div>
+    <div><h3>The nobleman</h3><ul><li>The game tells the agent the player sprinted into him.</li><li>The agent decides a nobleman would be dishonoured enough to challenge whoever did that to a duel, and writes his challenge.</li><li>At that moment it writes the follow-up quests through the harness. Kill him and you are thrown out of town and set to wanted there; let him flee and you gain honour for silencing a bully; refuse and it opens a bounty on you.</li></ul></div>
   </div>
-  <!--FIG s-dream-play--><figure class="dg"><svg viewBox="0 0 1000 300" role="img" aria-label="Two encounters as branching outcomes: the old lady&#x27;s quest to the cave completes, or a wrong description of her daughter starts a new quest; the nobleman&#x27;s duel ends in a bounty if refused, or, if accepted, in being wanted in town if he is killed or honour in town if he flees. Interactions and quest lines from each player&#x27;s single-player instance are cached on a server; after about a month they train a learned decision tree per NPC, which ships with no generative model."><defs><marker id="f-dream-play-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-dream-play-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-dream-play-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
-  <rect x="20" y="36" width="110" height="50" rx="8" class="dg-acc"/>
-  <text x="75.0" y="66.2" class="dg-t" text-anchor="middle" font-size="15">Old lady</text>
-  <rect x="186" y="36" width="150" height="50" rx="8" class="dg-box"/>
-  <text x="261.0" y="65.9" class="dg-t" text-anchor="middle" font-size="14">Quest: the cave</text>
-  <rect x="430" y="4" width="160" height="44" rx="8" class="dg-ok"/>
-  <text x="510.0" y="30.9" class="dg-t" text-anchor="middle" font-size="14">Quest complete</text>
-  <rect x="430" y="76" width="160" height="44" rx="8" class="dg-box"/>
-  <text x="510.0" y="102.9" class="dg-t" text-anchor="middle" font-size="14">New quest: alive</text>
-  <path d="M130,61 L182,61" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <text x="156" y="28" class="dg-s" text-anchor="middle" font-size="13">talk well</text>
-  <path d="M336,54 L426,28" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <path d="M336,68 L426,96" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <text x="372" y="18" class="dg-s" text-anchor="middle" font-size="13">report corpse</text>
-  <text x="372" y="112" class="dg-s" text-anchor="middle" font-size="13">describe wrongly</text>
-  <rect x="20" y="196" width="110" height="50" rx="8" class="dg-acc"/>
-  <text x="75.0" y="226.2" class="dg-t" text-anchor="middle" font-size="15">Nobleman</text>
-  <rect x="186" y="150" width="150" height="44" rx="8" class="dg-badbox"/>
-  <text x="261.0" y="176.9" class="dg-t" text-anchor="middle" font-size="14">Bounty on you</text>
-  <rect x="186" y="236" width="150" height="44" rx="8" class="dg-box"/>
-  <text x="261.0" y="262.9" class="dg-t" text-anchor="middle" font-size="14">Duel: two quests</text>
-  <rect x="430" y="200" width="160" height="44" rx="8" class="dg-badbox"/>
-  <text x="510.0" y="226.9" class="dg-t" text-anchor="middle" font-size="14">Wanted in town</text>
-  <rect x="430" y="254" width="160" height="44" rx="8" class="dg-ok"/>
-  <text x="510.0" y="280.9" class="dg-t" text-anchor="middle" font-size="14">Honour in town</text>
-  <path d="M130,212 L182,176" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <path d="M130,232 L182,254" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <text x="150" y="178" class="dg-s" text-anchor="end" font-size="13">refuse</text>
-  <text x="150" y="268" class="dg-s" text-anchor="end" font-size="13">accept</text>
-  <path d="M336,252 L426,226" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <path d="M336,264 L426,274" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
-  <text x="380" y="222" class="dg-s" text-anchor="middle" font-size="13">kill</text>
-  <text x="380" y="292" class="dg-s" text-anchor="middle" font-size="13">let flee</text>
-  <rect x="606" y="0" width="1" height="300" class="dg-none"/>
+  <!--FIG s-dream-play--><figure class="dg"><svg viewBox="0 0 1000 300" role="img" aria-label="The nobleman encounter: the game event, the player sprinting into him, goes to the agent, guided by his persona and behaviour tree, which decides a dishonoured noble challenges the player to a duel. At that moment it calls the harness to say the challenge, create a quest if he dies (wanted in town), create a quest if he flees (honour in town) and, if refused, open a bounty. Interactions and quest lines from each player&#x27;s single-player instance are cached on a server; after about a month they train a learned decision tree per NPC, which ships with no generative model."><defs><marker id="f-dream-play-ah-mut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-mut"/></marker><marker id="f-dream-play-ah-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-acc"/></marker><marker id="f-dream-play-ah-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="dg-ah-bad"/></marker></defs>
+  <rect x="10" y="10" width="180" height="60" rx="8" class="dg-box"/>
+  <text x="100.0" y="36.5" class="dg-t" text-anchor="middle" font-size="14">Game event: player</text>
+  <text x="100.0" y="53.3" class="dg-t" text-anchor="middle" font-size="14">sprints into him</text>
+  <rect x="10" y="110" width="180" height="80" rx="8" class="dg-acc"/>
+  <text x="100.0" y="138.1" class="dg-t" text-anchor="middle" font-size="14">Agent decides: a</text>
+  <text x="100.0" y="154.9" class="dg-t" text-anchor="middle" font-size="14">dishonoured noble</text>
+  <text x="100.0" y="171.7" class="dg-t" text-anchor="middle" font-size="14">challenges a duel</text>
+  <rect x="10" y="230" width="180" height="56" rx="8" class="dg-mark"/>
+  <text x="100.0" y="254.5" class="dg-t" text-anchor="middle" font-size="14">Persona and</text>
+  <text x="100.0" y="271.3" class="dg-t" text-anchor="middle" font-size="14">behaviour tree</text>
+  <path d="M100,70 L100,106" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
+  <path d="M100,230 L100,194" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
+  <rect x="236" y="4" width="356" height="292" rx="10" class="dg-frame"/>
+  <text x="252" y="30" class="dg-h" text-anchor="start" font-size="15">Harness calls, written at that moment</text>
+  <rect x="252" y="48" width="324" height="46" rx="8" class="dg-box"/>
+  <text x="414.0" y="75.9" class="dg-t" text-anchor="middle" font-size="14">Say: the duel challenge</text>
+  <rect x="252" y="108" width="324" height="46" rx="8" class="dg-badbox"/>
+  <text x="414.0" y="135.9" class="dg-t" text-anchor="middle" font-size="14">Quest if he dies: wanted in town</text>
+  <rect x="252" y="168" width="324" height="46" rx="8" class="dg-ok"/>
+  <text x="414.0" y="195.9" class="dg-t" text-anchor="middle" font-size="14">Quest if he flees: honour in town</text>
+  <rect x="252" y="228" width="324" height="46" rx="8" class="dg-badbox"/>
+  <text x="414.0" y="255.9" class="dg-t" text-anchor="middle" font-size="14">If refused: open a bounty</text>
+  <path d="M190,150 L232,150" class="dg-ln dg-acc-ln" marker-end="url(#f-dream-play-ah-acc)"/>
+  <rect x="616" y="0" width="1" height="300" class="dg-none"/>
   <rect x="650" y="8" width="330" height="60" rx="8" class="dg-box"/>
   <text x="815.0" y="34.5" class="dg-t" text-anchor="middle" font-size="14">Cached on a server from each</text>
   <text x="815.0" y="51.3" class="dg-t" text-anchor="middle" font-size="14">player’s single-player instance</text>
@@ -1103,9 +1098,9 @@ body.show-notes aside.notes::before { content: "Speaker notes · roughly " attr(
   <path d="M815,68 L815,114" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
   <path d="M815,178 L815,224" class="dg-ln" marker-end="url(#f-dream-play-ah-mut)"/>
   <text x="827" y="98" class="dg-s" text-anchor="start" font-size="13">after about a month of play</text>
-  <path d="M596,150 L646,40" class="dg-ln dg-acc-ln" marker-end="url(#f-dream-play-ah-acc)"/>
+  <path d="M592,60 L646,40" class="dg-ln dg-acc-ln" marker-end="url(#f-dream-play-ah-acc)"/>
 </svg></figure><!--/FIG-->
-  <aside class="notes" data-min="1">No designer wrote these two encounters line by line. The agent produced them from a persona, a behaviour tree and the harness’s actions. In the background, a system built on decision trees caches the interactions and quest lines each player creates in their own single-player instance and saves them to a server. After the agent mode has run for about a month and there is enough data, every agent is converted into a learned decision tree trained on what players induced during the playtest. The game gets the model’s spontaneity for emergent world design, then ships fixed, small models that are not generative, to save cost. Connect this to decision-tree learning from class.</aside>
+  <aside class="notes" data-min="1">This is where the emergent gameplay comes from. No designer wrote these encounters. The game sends the agent what is happening, such as the player sprinting into the nobleman. The agent decides, from his persona and behaviour tree, that a nobleman would be dishonoured enough to challenge that player to a duel. It writes his challenge, and at that moment it uses the harness to write the follow-up quests for each way the duel can end. In the background, a system built on decision trees caches the interactions and quest lines each player creates in their own single-player instance and saves them to a server. After the agent mode has run for about a month and there is enough data, every agent is converted into a learned decision tree trained on what players induced during the playtest. The game gets the model’s spontaneity for emergent world design, then ships fixed, small models that are not generative, to save cost. Connect this to decision-tree learning from class.</aside>
 </section>
 
 <!-- playtesting -->
